@@ -5,26 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test page</title>
+    <link rel="shortcut icon" type="image/png" href="images/landingpage/webicon.png"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <body>
-<div id="header">
+<header>
     <div>
-        <a href="http://google.com"><img src="images/landingpage/N++.png" class="imgN" alt="logo"/></a>
+        <a href="#header"><img src="images/landingpage/N++.png" class="imgN" alt="logo"/></a>
     </div>
     <div class="links">
         <div id="products" class="productsFont">
-            <a href="http://google.com" style="text-decoration: none">PRODUCTS</a>
+            <a href="#content1" style="text-decoration: none">PRODUCTS</a>
         </div>
         <div id="aboutUs">
-            <a href="http://google.com" style="text-decoration: none">ABOUT US</a>
+            <a href="#content2" style="text-decoration: none">ABOUT US</a>
         </div>
         <div id="contactUs">
-            <a href="http://google.com" style="text-decoration: none">CONTACT US</a>
+            <a href="#content3" style="text-decoration: none">CONTACT US</a>
         </div>
     </div>
-</div>
+</header>
 <div id="wrapper">
     <div id="content1">
         <div id="iphone">
@@ -39,7 +40,7 @@
                     nisi ut aliquip ex ea commodo consequat. </p>
             </div>
             <div>
-                <a href="http://google.com"><button class="first">Buy now!</button></a>
+                <a href="http://google.com"><button class="buyButton">Buy now!</button></a>
             </div>
         </div>
     </div>
@@ -74,21 +75,68 @@
         <div id="content3Form">
             <form name="form" method="get">
                 <input name="login" id="name" type="text" size="50" maxlength="30"
-                       value="  Type here your name, please">
+                       placeholder="  Type here your name, please">
                 <br>
                 <input name="email" id="email" type="text" size="50" maxlength="40"
-                       value="  Type here your email, please">
+                       placeholder="  Type here your email, please">
                 <br>
                 <input name="phone" id="phone" type="text" size="50" maxlength="40"
-                       value="  Type here your phone, please">
+                       placeholder="  Type here your phone, please">
                 <br>
-                <textarea name="question" id="textarea" cols="50" rows="5">  Ask your question
-                </textarea>
+                <textarea name="question" id="textarea" cols="50" rows="5"
+                          placeholder="  Ask your question"></textarea>
                 <br>
+                <input type="submit" id="submit" value="Send email!">
+                <br>
+
+                <!--&lt;!&ndash;All inputs&ndash;&gt;-->
+                <!--<input type="text" name="firstname" placeholder="text">-->
+                <!--<br>-->
+                <!--<input type="password" name="psw" placeholder="password">-->
+                <!--<br>-->
+                <!--<input type="email" name="email" placeholder="email">-->
+                <!--<br>-->
+                <!--<span>Telephone: </span><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">-->
+                <!--<br>-->
+                <!--<span>Select a time: </span><input type="time" name="usr_time">-->
+                <!--<br>-->
+                <!--<span>Select a date: </span><input type="date" name="bday">-->
+                <!--<br>-->
+                <!--<span>Select a week:</span><input type="week" name="week_year">-->
+                <!--<br>-->
+                <!--<span>Select a month: </span><input type="month" name="bdaymonth">-->
+                <!--<br>-->
+                <!--<span>Select date and time: </span><input type="datetime-local" name="bdaytime">-->
+                <!--<br>-->
+                <!--<input type="radio" name="gender" value="male" checked> Male-->
+                <!--<br>-->
+                <!--<input type="radio" name="gender" value="female"> Female-->
+                <!--<br>-->
+                <!--<input type="checkbox" name="vehicle1" value="Bike"> I have a bike-->
+                <!--<br>-->
+                <!--<input type="checkbox" name="vehicle2" value="Car"> I have a car-->
+                <!--<br>-->
+                <!--<input type="button" onclick="alert('Hello World!')" value="Click Me!">-->
+                <!--<br>-->
+                <!--<span>Choose color:</span> <input type="color" name="favcolor">-->
+                <!--<br>-->
+                <!--<span>Select a file: </span><input type="file" name="myFile">-->
+                <!--<br>-->
+                <!--<span>Quantity (between 1 and 5): </span><input type="number" name="quantity" min="1" max="5">-->
+                <!--<br>-->
+                <!--<span>Quantity:</span><input type="number" name="points" min="0" max="100" step="10" value="30">-->
+                <!--<br>-->
+                <!--<span>Range (between 1 and 10): </span><input type="range" name="points" min="0" max="10">-->
+                <!--<br>-->
+                <!--<span>Search Google: </span><input type="search" name="googlesearch">-->
+                <!--<br>-->
+                <!--<span>Add your homepage: </span><input type="url" name="homepage" placeholder="http://google.com">-->
+                <!--<br>-->
+                <!--</b><input type="submit" value="Submit">-->
+                <!--<br>-->
+                <!--<input type="reset" value="Reset">-->
+                <!--<br>-->
             </form>
-        </div>
-        <div>
-            <a href="http://google.com"><button class="second">Send email!</button></a>
         </div>
     </div>
 </div>
