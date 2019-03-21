@@ -10,44 +10,53 @@
             height: 100%;
             margin: 0;
         }
-        #wrapper {
-            position: relative;
+
+        .wrapper {
             min-height: 100%;
-            width: 100%;
-            display: inline-flex;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
         }
-        * html #wrapper {
-            height: 100%;
+
+        .contentBlock{
+            display: flex;
+            flex-direction: row;
         }
-        #content1{
-            padding-bottom: 100px;
+
+        .contentBlock1{
             width: 50%;
             background-color: coral;
-            height: 600px;
+            height: 500px;
         }
 
-        #content2{
-            padding-bottom: 100px;
+        .contentBlock2{
             background-color: blueviolet;
-            height: 600px;
+            height: 500px;
             width: 50%;
         }
 
-        #footer {
+        header{
+            height: 80px;
+            background-color: #3498db;
+        }
+
+        footer {
             background-color: aqua;
             height: 80px;
-            position: relative;
-            margin: -80px auto 0 auto;
         }
     </style>
 </head>
 <body>
 <body>
-<div id="wrapper">
-    <div id="content1">1</div>
-    <div id="content2">2</div>
+<div class="wrapper">
+    <header>0</header>
+    <div class="contentBlock">
+        <div class="contentBlock1">1</div>
+        <div class="contentBlock2">2</div>
+    </div>
+    <footer>3</footer>
 </div>
-<div id="footer">3</div>
 </body>
 </body>
 </html>

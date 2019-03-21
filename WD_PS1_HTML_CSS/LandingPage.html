@@ -14,53 +14,55 @@
     <div>
         <a href="#header"><img src="images/landingpage/N++.png" class="imgN" alt="logo"/></a>
     </div>
-    <div class="links">
-        <div id="products" class="productsFont">
-            <a href="#content1" style="text-decoration: none">PRODUCTS</a>
+    <nav class="links">
+        <div class="productsFont">
+            <a href="#contentBlock1" class="products">PRODUCTS</a>
         </div>
-        <div id="aboutUs">
-            <a href="#content2" style="text-decoration: none">ABOUT US</a>
+        <div>
+            <a href="#contentBlock2"  class="aboutUs">ABOUT US</a>
         </div>
-        <div id="contactUs">
-            <a href="#content3" style="text-decoration: none">CONTACT US</a>
+        <div>
+            <a href="#contentBlock3"  class="contactUs">CONTACT US</a>
         </div>
-    </div>
+    </nav>
 </header>
-<div id="wrapper">
-    <div id="content1">
-        <div id="iphone">
-            <img src="images/landingpage/IPhone.png" alt="IPhone" class="imgPhone"/>
+<div class="wrapper">
+    <div id="contentBlock1">
+        <div class="contentBlock1__iphone">
+            <img src="images/landingpage/IPhone.png" alt="IPhone" class="contentBlock1__iphone--imgIPhone"/>
         </div>
-        <div id="content1Text">
+        <div class="contentBlock1__textBlock">
             <h1>Our awesome app is ready to use!</h1>
-            <div id="content1Text2">
+            <div class="contentBlock1__textBlock--text">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                     nisi ut aliquip ex ea commodo consequat. </p>
             </div>
             <div>
-                <a href="http://google.com"><button class="buyButton">Buy now!</button></a>
+                <a href="http://google.com"><button class="contentBlock1__textBlock--buyButton">Buy now!</button></a>
             </div>
         </div>
     </div>
-    <div id="content2">
-        <div id="content2-1">
-            <img src="images/landingpage/webicon.png" alt="firstIcon" id="webicon"/>
+    <div id="contentBlock2">
+        <div class="contentBlock2__content1">
+            <img src="images/landingpage/webicon.png" alt="firstIcon" class="contentBlock2__content1--webicon"/>
             <h3>Web development</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. </p>
-        </div><div id="content2-2">
-            <img src="images/landingpage/mobileicon.png" alt="firstIcon" id="mobileicon"/>
+        </div>
+        <div class="contentBlock2__content2">
+            <img src="images/landingpage/mobileicon.png" alt="firstIcon" class="contentBlock2__content2--mobileicon"/>
             <h3>Web development</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. </p>
-        </div><div id="content2-3">
-            <img src="images/landingpage/driveicon.png" alt="firstIcon" id="driveicon"/>
+        </div>
+        <div class="contentBlock2__content3">
+            <img src="images/landingpage/driveicon.png" alt="firstIcon" class="contentBlock2__content3--driveicon"/>
             <h3>Web development</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -68,74 +70,46 @@
                 nisi ut aliquip ex ea commodo consequat. </p>
         </div>
     </div>
-    <div id="content3">
-        <div id="contactUsToForm">
-            <h2>Contact us!</h2>
+    <div id="contentBlock3">
+        <div class="contentBlock3__contactUs">
+            <span>Contact us!</span>
         </div>
-        <div id="content3Form">
+        <div class="contentBlock3__form">
             <form name="form" method="get">
-                <input name="login" id="name" type="text" size="50" maxlength="30"
+                <input name="login" class="contentBlock3__form--name" type="text" size="50" maxlength="30"
                        placeholder="  Type here your name, please">
-                <br>
-                <input name="email" id="email" type="text" size="50" maxlength="40"
+                <input name="email" class="contentBlock3__form--email" type="text" size="50" maxlength="40"
                        placeholder="  Type here your email, please">
-                <br>
-                <input name="phone" id="phone" type="text" size="50" maxlength="40"
+                <input name="phone" class="contentBlock3__form--phone" type="text" size="50" maxlength="40"
                        placeholder="  Type here your phone, please">
-                <br>
-                <textarea name="question" id="textarea" cols="50" rows="5"
+                <textarea name="question" class="contentBlock3__form--textarea" cols="50" rows="5"
                           placeholder="  Ask your question"></textarea>
-                <br>
-                <input type="submit" id="submit" value="Send email!">
-                <br>
+                <input type="submit" class="contentBlock3__form--submit" value="Send email!">
 
-                <!--&lt;!&ndash;All inputs&ndash;&gt;-->
-                <!--<input type="text" name="firstname" placeholder="text">-->
-                <!--<br>-->
-                <!--<input type="password" name="psw" placeholder="password">-->
-                <!--<br>-->
-                <!--<input type="email" name="email" placeholder="email">-->
-                <!--<br>-->
-                <!--<span>Telephone: </span><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">-->
-                <!--<br>-->
-                <!--<span>Select a time: </span><input type="time" name="usr_time">-->
-                <!--<br>-->
-                <!--<span>Select a date: </span><input type="date" name="bday">-->
-                <!--<br>-->
-                <!--<span>Select a week:</span><input type="week" name="week_year">-->
-                <!--<br>-->
-                <!--<span>Select a month: </span><input type="month" name="bdaymonth">-->
-                <!--<br>-->
-                <!--<span>Select date and time: </span><input type="datetime-local" name="bdaytime">-->
-                <!--<br>-->
-                <!--<input type="radio" name="gender" value="male" checked> Male-->
-                <!--<br>-->
-                <!--<input type="radio" name="gender" value="female"> Female-->
-                <!--<br>-->
-                <!--<input type="checkbox" name="vehicle1" value="Bike"> I have a bike-->
-                <!--<br>-->
-                <!--<input type="checkbox" name="vehicle2" value="Car"> I have a car-->
-                <!--<br>-->
-                <!--<input type="button" onclick="alert('Hello World!')" value="Click Me!">-->
-                <!--<br>-->
-                <!--<span>Choose color:</span> <input type="color" name="favcolor">-->
-                <!--<br>-->
-                <!--<span>Select a file: </span><input type="file" name="myFile">-->
-                <!--<br>-->
-                <!--<span>Quantity (between 1 and 5): </span><input type="number" name="quantity" min="1" max="5">-->
-                <!--<br>-->
-                <!--<span>Quantity:</span><input type="number" name="points" min="0" max="100" step="10" value="30">-->
-                <!--<br>-->
-                <!--<span>Range (between 1 and 10): </span><input type="range" name="points" min="0" max="10">-->
-                <!--<br>-->
-                <!--<span>Search Google: </span><input type="search" name="googlesearch">-->
-                <!--<br>-->
-                <!--<span>Add your homepage: </span><input type="url" name="homepage" placeholder="http://google.com">-->
-                <!--<br>-->
-                <!--</b><input type="submit" value="Submit">-->
-                <!--<br>-->
-                <!--<input type="reset" value="Reset">-->
-                <!--<br>-->
+                <!--All inputs-->
+                <input type="text" name="firstname" placeholder="text">
+                <input type="password" name="psw" placeholder="password">
+                <input type="email" name="email" placeholder="email">
+                <span>Telephone: </span><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">
+                <span>Select a time: </span><input type="time" name="usr_time">
+                <span>Select a date: </span><input type="date" name="bday">
+                <span>Select a week:</span><input type="week" name="week_year">
+                <span>Select a month: </span><input type="month" name="bdaymonth">
+                <span>Select date and time: </span><input type="datetime-local" name="bdaytime">
+                <input type="radio" name="gender" value="male" checked> Male
+                <input type="radio" name="gender" value="female"> Female
+                <input type="checkbox" name="vehicle1" value="Bike"> I have a bike
+                <input type="checkbox" name="vehicle2" value="Car"> I have a car
+                <input type="button" onclick="alert('Hello World!')" value="Click Me!">
+                <span>Choose color:</span> <input type="color" name="favcolor">
+                <span>Select a file: </span><input type="file" name="myFile">
+                <span>Quantity (between 1 and 5): </span><input type="number" name="quantity" min="1" max="5">
+                <span>Quantity:</span><input type="number" name="points" min="0" max="100" step="10" value="30">
+                <span>Range (between 1 and 10): </span><input type="range" name="points" min="0" max="10">
+                <span>Search Google: </span><input type="search" name="googlesearch">
+                <span>Add your homepage: </span><input type="url" name="homepage" placeholder="http://google.com">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
             </form>
         </div>
     </div>

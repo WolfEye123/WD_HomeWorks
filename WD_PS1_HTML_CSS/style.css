@@ -5,25 +5,22 @@ html, body {
     margin: 0;
 }
 
-#wrapper {
-}
-
-* html #wrapper {
+* html .wrapper {
     height: 100%;
 }
 
-#content1 {
+#contentBlock1 {
     display: flex;
     background-color: #1abc9c;
     height: 500px;
 }
 
-#content2 {
+#contentBlock2 {
     background-color: white;
     height: 400px;
 }
 
-#content3 {
+#contentBlock3 {
     background-color: #1abc9c;
     height: 100%;
 
@@ -41,11 +38,11 @@ header {
     margin-top: 25px;
 }
 
-#iphone{
+.contentBlock1__iphone{
     width: 50%;
 }
 
-.imgPhone{
+.contentBlock1__iphone--imgIPhone{
     display: flex;
     margin-left: 40%;
     padding-top: 30px;
@@ -57,25 +54,16 @@ header {
     display: inline-flex;
 }
 
-
-#products {
+.products,
+.aboutUs,
+.contactUs{
+    text-decoration: none;
     font-family: Helvetica;
     font-size: 1.1rem;
     margin-right: 45px;
 }
 
-#aboutUs {
-    font-family: Helvetica;
-    font-size: 1.1rem;
-    margin-right: 45px;
-}
-
-#contactUs{
-    font-family: Helvetica;
-    font-size: 1.1rem;
-}
-
-#content1Text{
+.contentBlock1__textBlock{
     font-family: Helvetica;
     width: 50%;
     font-size: 1.05rem;
@@ -83,7 +71,7 @@ header {
     margin-top: 85px;
 }
 
-#content1Text2{
+.contentBlock1__textBlock--text{
     font-family: Helvetica;
     color: #fcfaea;
     margin-top: 40px;
@@ -91,47 +79,57 @@ header {
     font-size: 1.3rem;
 }
 
-#content2{
+#contentBlock2{
     display: inline-flex;
     font-family: Helvetica;
     color: #536270;
 }
 
-#content2-1{
+.contentBlock2__content1{
     padding-left: 10%;
 }
 
-#content2-3{
+.contentBlock2__content3{
     padding-right: 10%;
 }
 
 
-#content2-1, #content2-2, #content2-3{
+.contentBlock2__content1,
+.contentBlock2__content2,
+.contentBlock2__content3{
     display: block;
     width: 33.3%;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
 }
 
-#mobileicon, #driveicon, #webicon{
+.contentBlock2__content2--mobileicon,
+.contentBlock2__content3--driveicon,
+.contentBlock2__content1--webicon{
     width: 100px;
     height: 100px;
     padding-top: 50px;
 }
 
-#contactUsToForm{
+.contentBlock3__contactUs{
     font-family: Helvetica;
     color: white;
-    font-size: 1.5rem;
+    font-size: 3rem;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
-#content3Form{
+.contentBlock3__form{
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: -30px;
+    white-space: pre;
 }
 
-#name, #email, #phone, #textarea{
+.contentBlock3__form--name,
+.contentBlock3__form--email,
+.contentBlock3__form--phone,
+.contentBlock3__form--textarea{
     min-width: 400px;
     width: 600px;
     padding-top: 3px;
@@ -142,7 +140,7 @@ header {
     margin-top: 10px;
 }
 
-#submit{
+.contentBlock3__form--submit{
     font-family: Helvetica;
     font-size: 1.5rem;
     color: #d8fdfd;
@@ -154,7 +152,7 @@ header {
     margin-bottom: 50px;
 }
 
-button.buyButton{
+button.contentBlock1__textBlock--buyButton{
     font-family: Helvetica;
     font-size: 1.5rem;
     color: #d8fdfd;

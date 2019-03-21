@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test page</title>
+    <style media="screen">
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        .contentBlock{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .contentBlock1{
+            width: 33.3%;
+            background-color: coral;
+            height: 500px;
+        }
+
+        .contentBlock2{
+            background-color: blueviolet;
+            height: 500px;
+            width: 33.3%;
+        }
+
+        .contentBlock3{
+            background-color: crimson;
+            height: 500px;
+            width: 33.3%;
+        }
+
+        header{
+            height: 80px;
+            background-color: #3498db;
+        }
+
+        footer {
+            background-color: aqua;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+<body>
+<div class="wrapper">
+    <header>0</header>
+    <div class="contentBlock">
+        <div class="contentBlock1">1</div>
+        <div class="contentBlock2">2</div>
+        <div class="contentBlock3">3</div>
+    </div>
+    <footer>3</footer>
+</div>
+</body>
+</body>
+</html>
