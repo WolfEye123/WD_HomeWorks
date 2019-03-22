@@ -59,6 +59,7 @@ header {
 .contactUs{
     text-decoration: none;
     font-family: Helvetica;
+    color: #16a085;
     font-size: 1.1rem;
     margin-right: 45px;
 }
@@ -97,19 +98,29 @@ header {
 .contentBlock2__content1,
 .contentBlock2__content2,
 .contentBlock2__content3{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 33.3%;
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
 }
 
-.contentBlock2__content2--mobileicon,
-.contentBlock2__content3--driveicon,
-.contentBlock2__content1--webicon{
-    width: 100px;
-    height: 100px;
-    padding-top: 50px;
+.contentBlock2__content2--icon,
+.contentBlock2__content3--icon,
+.contentBlock2__content1--icon{
+    width: 110px;
+    height: 110px;
+    background-color: #1abc9c;
+    margin-top: 50px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    color: white;
+}
+
+i{
+    margin-top: 30%;
 }
 
 .contentBlock3__contactUs{
