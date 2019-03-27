@@ -7,6 +7,8 @@
     <title>Test page</title>
     <style media="screen">
         body {
+            height: 100vh;
+            min-height: 100%;
             width: 100%;
             margin: 0;
         }
@@ -24,28 +26,31 @@
             padding: 1rem;
         }
 
-        .floats .column{
+        .floats .column {
             overflow: hidden;
+            width: 33.3%;
+            display: block;
             float: left;
         }
 
-        .blocks .column{
+        .blocks .column {
             display: inline-block;
             margin: 0 -4px 0 0;
-        }
-
-        .flexbox{
-            display: flex;
-            flex-direction: row;
-        }
-
-        .column{
             width: 33.3%;
+
         }
 
-        .grid .column{
-            display: inline-grid;
-            margin: 0 -4px 0 0;
+        .flexbox {
+            display: flex;
+        }
+
+        .flexbox .column{
+            flex: 1;
+        }
+
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
         }
 
     </style>
