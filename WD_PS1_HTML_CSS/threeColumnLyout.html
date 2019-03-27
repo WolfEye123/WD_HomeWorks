@@ -1,69 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test page</title>
-    <style media="screen">
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Test page</title>
+<style media="screen">
+    html, body {
+        height: 100vh;
+        margin: 0;
+    }
 
-        .wrapper {
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: stretch;
-        }
+    .wrapper {
+        min-height: 80%;
+        width: 100%;
+    }
 
-        .contentBlock{
-            display: flex;
-            flex-direction: row;
-        }
+    .contentBlock{
+        display: flex;
+        flex-direction: row;
+    }
 
-        .contentBlock1{
-            flex: 1;
-            background-color: coral;
-            height: 500px;
-        }
+    .contentBlock1,
+    .contentBlock2,
+    .contentBlock3{
+        flex: 1;
+    }
 
-        .contentBlock2{
-            background-color: blueviolet;
-            height: 500px;
-            flex: 1;
-        }
+    .contentBlock1{
+        background-color: coral;
+    }
 
-        .contentBlock3{
-            background-color: crimson;
-            height: 500px;
-            flex: 1;
-        }
+    .contentBlock2{
+        background-color: blueviolet;
 
-        header{
-            height: 80px;
-            background-color: #3498db;
-        }
+    }
 
-        footer {
-            background-color: aqua;
-            height: 80px;
-        }
-    </style>
+    .contentBlock3{
+        background-color: #e22634;
+    }
+
+    header{
+        height: 10%;
+        width: 100%;
+        background-color: #3498db;
+    }
+
+    footer {
+        background-color: aqua;
+        position: relative;
+        height: 10%;
+        width: 100%;
+    }
+</style>
 </head>
 <body>
 <body>
+<header>0</header>
 <div class="wrapper">
-    <header>0</header>
     <div class="contentBlock">
-        <div class="contentBlock1">1</div>
+        <div class="contentBlock1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
         <div class="contentBlock2">2</div>
         <div class="contentBlock3">3</div>
     </div>
-    <footer>3</footer>
 </div>
+<footer>4</footer>
 </body>
 </body>
-</html>
