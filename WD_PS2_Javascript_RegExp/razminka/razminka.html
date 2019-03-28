@@ -9,63 +9,62 @@
 <body>
 <div class="wrapper">
     <div class="ex">Warm up task № 1</div>
-    <br>
     <div class="exText">
         <label for="fNum">
             Calculate the sum of the numbers in the interval between the entered user<br>
-            (for example, from -100 to 100), adding only numbers that end with 2.3, and 7
+            (for example, from -100 to 100), adding only numbers that end with 2,3, and 7
         </label>
     </div>
-    <br>
     <input type="text" id="fNum" class="input" placeholder="Enter first number">
-    <br>
     <input type="text" id="sNum" class="input" placeholder="Enter second number">
-    <br>
     <input type="submit" class="submit" value="Calculate" onclick="calculateNumbers()">
-    <br>
     <div class="answerEx1">Answer is:</div>
-    <br>
-    <br>
     <div class="ex">Warm up task № 2</div>
-    <br>
+
     <div class="exText">
         <label for="timeInput1">The user enters the time in seconds. Output in the format: hh: mm: ss (01:05:20)</label>
-        <br>
     </div>
-    <br>
     <input type="text" id="timeInput1" class="input" placeholder="Enter the number of seconds">
-    <br>
     <input type="submit" class="submit" value="Calculate" onclick="calculateFromSeconds()">
     <div class="answerEx2">Answer is:</div>
-    <br>
     <div class="exText">
         <label for="timeInput2">The user enters the time in the format hh: mm: ss (01:23:20),<br>
             Output in the format: 5000 sec</label>
-        <br>
     </div>
-    <br>
     <input type="text" id="timeInput2" class="input" placeholder="Enter the number of seconds">
-    <br>
     <input type="submit" class="submit" value="Calculate" onclick="calculateToSeconds()">
     <div class="answerEx2_1">Answer is:</div>
-    <br>
     <div class="ex">Warm up task № 3</div>
-    <br>
     <div class="exText">
         <label for="timeInput3">
             Calculate the time elapsed between dates and display the message to the user:<br>
             2 year (s), 1 month (s), 3 day (s), 5 hour (s), 10 minute (s).
         </label>
     </div>
-    <br>
     <input type="datetime-local" id="timeInput3" class="input" placeholder="Enter first number">
-    <br>
     <input type="datetime-local" id="timeInput4" class="input" placeholder="Enter second number">
-    <br>
     <input type="submit" class="submit" value="Calculate" onclick="calculateTimeBetween()">
-    <br>
     <div class="answerEx3">Answer is:</div>
-    <br>
+    <div class="ex">Warm up task № 4</div>
+    <div class="exText">
+        <label for="chess">
+            The user enters the dimensions of the chessboard (in the format of ‘8x8’).
+            Display (how to draw) a chessboard. <br>
+            Max.size (25x25)
+        </label>
+    </div>
+    <input type="text" id="chess" class="input" placeholder="Enter chessboard size">
+    <input type="submit" class="submit" value="Draw ChessBoard" onclick="drawChessBoard()">
+    <div class="answerEx4_1"></div>
+    <div class="answerEx4"></div>
+    <div class="ex">Warm up task № 5</div>
+    <div class="exText">
+        <label for="links">
+            The user enters links or ip separated by commas. list them in alphabetical order
+        </label>
+    </div>
+    <textarea wrap="hard" id="links" rows="5" placeholder="Enter links and ip"></textarea>
+    <div class="answerEx5"></div>
 </div>
 </body>
 </html>
