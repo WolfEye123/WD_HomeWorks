@@ -1,29 +1,32 @@
 html, body {
-    height: 100%;
+    height: 100vh;
     min-width: 1000px;
     max-width: 1366px;
-    margin: 0;
+    margin: 0 auto;
+    font-family: Helvetica;
 }
 
 * html .wrapper {
     height: 100%;
 }
 
+a, button{
+    cursor: pointer;
+}
+
 #contentBlock1 {
     display: flex;
     background-color: #1abc9c;
-    height: 500px;
+    padding-bottom: 30px;
 }
 
 #contentBlock2 {
     background-color: white;
-    height: 400px;
+    padding-bottom: 30px;
 }
 
 #contentBlock3 {
     background-color: #1abc9c;
-    height: 100%;
-
 }
 
 header {
@@ -33,7 +36,6 @@ header {
 }
 
 .imgN {
-    display: flex;
     margin-left: 100%;
     margin-top: 25px;
 }
@@ -43,7 +45,6 @@ header {
 }
 
 .contentBlock1__iphone--imgIPhone{
-    display: flex;
     margin-left: 40%;
     padding-top: 30px;
 }
@@ -54,18 +55,14 @@ header {
     display: inline-flex;
 }
 
-.products,
-.aboutUs,
-.contactUs{
+.links__style{
     text-decoration: none;
-    font-family: Helvetica;
     color: #16a085;
     font-size: 1.1rem;
     margin-right: 45px;
 }
 
 .contentBlock1__textBlock{
-    font-family: Helvetica;
     width: 50%;
     font-size: 1.05rem;
     color: white;
@@ -73,7 +70,6 @@ header {
 }
 
 .contentBlock1__textBlock--text{
-    font-family: Helvetica;
     color: #fcfaea;
     margin-top: 40px;
     width: 90%;
@@ -82,7 +78,6 @@ header {
 
 #contentBlock2{
     display: inline-flex;
-    font-family: Helvetica;
     color: #536270;
 }
 
@@ -124,7 +119,6 @@ i{
 }
 
 .contentBlock3__contactUs{
-    font-family: Helvetica;
     color: white;
     font-size: 3rem;
     text-align: center;
@@ -145,29 +139,27 @@ i{
     width: 600px;
     padding-top: 3px;
     padding-bottom: 3px;
-    font-family: Helvetica;
     font-size: 1.4rem;
     color: #000000;
     margin-top: 10px;
 }
 
 .contentBlock3__form--submit{
-    font-family: Helvetica;
     font-size: 1.5rem;
     color: #d8fdfd;
-    padding: 10px 60px 10px 60px;
+    padding: 10px 60px;
     background: #1abc9c;
     border-radius: 5px;
     border: 2px solid white;
     margin-top: 55px;
     margin-bottom: 50px;
+    cursor: pointer;
 }
 
 button.contentBlock1__textBlock--buyButton{
-    font-family: Helvetica;
     font-size: 1.5rem;
     color: #d8fdfd;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 25px;
     background: #1abc9c;
     border-radius: 5px;
     border: 2px solid white;
