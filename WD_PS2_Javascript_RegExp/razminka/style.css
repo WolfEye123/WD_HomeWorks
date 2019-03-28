@@ -82,7 +82,7 @@ body{
     background: white;
 }
 
-#links{
+.link{
     font-size: 1.2rem;
     resize: none;
     width: 30%;

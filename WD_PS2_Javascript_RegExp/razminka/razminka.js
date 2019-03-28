@@ -95,3 +95,9 @@ function drawChessBoard() {
         answer.append(br);
     }
 }
+
+const testEl = document.getElementById('link');
+testEl.addEventListener('blur', (e) => {
+    console.log(e.target.value);
+
+});
