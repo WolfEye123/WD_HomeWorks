@@ -48,7 +48,8 @@ body{
 .answerEx2_1,
 .answerEx3,
 .answerEx4,
-.answerEx5{
+.answerEx5,
+.answerEx6{
     color: #c7c9c6;
     font-size: 1.5rem;
     border-bottom: 2px solid #c7c9c6;
@@ -85,5 +86,26 @@ body{
 .link{
     font-size: 1.2rem;
     resize: none;
+    outline: none;
+    border-radius: 5px;
     width: 30%;
+    margin-bottom: 20px;
+}
+
+.answerEx5 a{
+    text-decoration: none;
+    color: white;
+}
+
+.regExpText{
+    width: 250px;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+}
+
+.mark{
+    background-color: yellow;
 }

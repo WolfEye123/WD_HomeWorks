@@ -20,7 +20,7 @@ function calculateNumbers() {
 function calculateFromSeconds() {
     let sNum = +document.getElementById("timeInput1").value;
     const answer = document.getElementsByClassName("answerEx2")[0];
-    if (sNum < 0){
+    if (sNum < 0) {
         answer.innerHTML = "Incorrect number. Please try again.";
         return;
     }
@@ -69,7 +69,7 @@ function drawChessBoard() {
     let br;
     let x = boardSize[0];
     let y = boardSize[1];
-    if (x < 0 || y < 0) {
+    if (x < 0 || y < 0 || x > 25 || y > 25) {
         answerErr.innerHTML = "Incorrect size. Please try again.";
         return;
     }
@@ -87,7 +87,7 @@ function drawChessBoard() {
             }
             answer.appendChild(block);
             flag = !flag;
-            if (j == x - 1 && x % 2 != 0){
+            if (j == x - 1 && x % 2 != 0) {
                 flag = !flag;
             }
         }
@@ -96,8 +96,111 @@ function drawChessBoard() {
     }
 }
 
-const testEl = document.getElementById('link');
-testEl.addEventListener('blur', (e) => {
-    console.log(e.target.value);
+const link = document.getElementById("link");
+link.addEventListener('focus', (e) => {
+    const answer = document.getElementsByClassName("answerEx5")[0];
+    answer.innerHTML = "";
+});
 
+link.addEventListener('blur', (e) => {
+    let links = e.target.value.split(',');
+    links = links.map(function (link) {
+        link = link.replace(/\s/g, "");
+        return link;
+    });
+    links = links.map(function (link) {
+        if (link.charAt(4) === 's') {
+            link = link.substring(0, 4) + link.substring(5);
+        }
+        return link;
+    });
+    links.sort();
+    let br;
+    const answer = document.getElementsByClassName("answerEx5")[0];
+    let regExp = [/https\:\/\/\w+\.\w+\.\w+/, /https\:\/\/\w+\.\w+/, /http\:\/\/\w+\.\w+\.\w+/, /http\:\/\/\w+\.\w+/,
+        /\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3}/];
+    links = links.map(function (link) {
+        br = document.createElement('br');
+        if (link.match(regExp[0]) || link.match(regExp[1])) {
+            let a = document.createElement('a');
+            let linkText = document.createTextNode(link.substring(8));
+            a.appendChild(linkText);
+            a.target = "_blank";
+            a.title = link.substring(8);
+            a.href = link;
+            answer.appendChild(a);
+            answer.appendChild(br);
+        }
+        if (link.match(regExp[2]) || link.match(regExp[3])) {
+            let a = document.createElement('a');
+            let linkText = document.createTextNode(link.substring(7));
+            a.appendChild(linkText);
+            a.target = "_blank";
+            a.title = link.substring(7);
+            a.href = link;
+            answer.appendChild(a);
+            answer.appendChild(br);
+        }
+        if (link.match(regExp[4])) {
+            let a = document.createElement('a');
+            let linkText = document.createTextNode(link);
+            a.appendChild(linkText);
+            a.target = "_blank";
+            a.title = link;
+            a.href = link;
+            answer.appendChild(a);
+            answer.appendChild(br);
+        }
+        return link;
+    });
+});
+
+const text = document.getElementById("regExpText");
+text.addEventListener('focus', (e) => {
+    const answer = document.getElementsByClassName("answerEx6")[0];
+    answer.innerHTML = "";
+});
+
+text.addEventListener('blur', (e) => {
+    let regExp = document.getElementById("regExp").value;
+    if (regExp.charAt(regExp.length - 1) === 'g' || regExp.charAt(regExp.length - 1) === 'i'
+        || regExp.charAt(regExp.length - 1) === 'm') {
+        regExp = new RegExp(regExp.substring(0, regExp.length - 1), regExp.charAt(regExp.length - 1));
+    } else {
+        regExp = new RegExp(regExp);
+    }
+    let text = e.target.value;
+    let temp, mark, foundPos;
+    const answer = document.getElementsByClassName("answerEx6")[0];
+
+    if (regExp.length === 0) {
+        answer.innerHTML = "No regex";
+        return;
+    } else {
+        let regExpText;
+        while (text.length > 0) {
+            foundPos = text.search(regExp);
+            mark = document.createElement("mark");
+            if (foundPos < 0) {
+                answer.append(text);
+                return;
+            } else if (foundPos === 0) {
+                regExpText = text.match(regExp)[0];
+                mark.append(regExpText);
+                temp = text.substring(0, regExpText.length);
+                text = text.substring(regExpText.length);
+                answer.appendChild(mark);
+                continue;
+            } else {
+                regExpText = text.match(regExp)[0];
+                temp = text.substring(0, foundPos);
+                text = text.substring(foundPos);
+                answer.append(temp);
+                temp = text.substring(0, regExpText.length);
+                mark.append(temp);
+                text = text.substring(regExpText.length);
+                answer.appendChild(mark);
+            }
+        }
+    }
 });
