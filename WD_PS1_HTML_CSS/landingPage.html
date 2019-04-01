@@ -12,23 +12,22 @@
           crossorigin="anonymous">
 </head>
 <body>
-<body>
 <header>
     <a href="#header"><img src="images/landingpage/N++.png" class="imgN" alt="logo"/></a>
     <nav class="links">
-        <a href="#contentBlock1" class="links__style">PRODUCTS</a>
-        <a href="#contentBlock2" class="links__style">ABOUT US</a>
-        <a href="#contentBlock3" class="links__style">CONTACT US</a>
+        <a href="#products" class="links__style">PRODUCTS</a>
+        <a href="#aboutUs" class="links__style">ABOUT US</a>
+        <a href="#contactUs" class="links__style">CONTACT US</a>
     </nav>
 </header>
 <div class="wrapper">
-    <div id="contentBlock1">
-        <div class="contentBlock1__iphone">
-            <img src="images/landingpage/IPhone.png" alt="IPhone" class="contentBlock1__iphone--imgIPhone"/>
+    <div id="products">
+        <div class="products_iphone">
+            <img src="images/landingpage/IPhone.png" alt="IPhone" class="products_iphone-img"/>
         </div>
-        <div class="contentBlock1__textBlock">
+        <div class="products_text">
             <h1>Our awesome app is ready to use!</h1>
-            <div class="contentBlock1__textBlock--text">
+            <div class="products_text-text">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -36,14 +35,14 @@
             </div>
             <div>
                 <a href="http://google.com">
-                    <button class="contentBlock1__textBlock--buyButton">Buy now!</button>
+                    <button class="products_text-button">Buy now!</button>
                 </a>
             </div>
         </div>
     </div>
-    <div id="contentBlock2">
-        <div class="contentBlock2__content1">
-            <div class="contentBlock2__content1--icon">
+    <div id="aboutUs">
+        <div class="aboutUs_1">
+            <div class="aboutUs1_content-icon">
                 <i class="fas fa-code icon"></i>
             </div>
             <h3>Web development</h3>
@@ -52,8 +51,8 @@
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. </p>
         </div>
-        <div class="contentBlock2__content2">
-            <div class="contentBlock2__content2--icon">
+        <div class="aboutUs_2">
+            <div class="aboutUs2_content-icon">
                 <i class="fab fa-android"></i>
             </div>
             <h3>Web development</h3>
@@ -62,8 +61,8 @@
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. </p>
         </div>
-        <div class="contentBlock2__content3">
-            <div class="contentBlock2__content3--icon">
+        <div class="aboutUs_3">
+            <div class="aboutUs3_content-icon">
                 <i class="fas fa-cloud"></i>
             </div>
             <h3>Web development</h3>
@@ -73,50 +72,52 @@
                 nisi ut aliquip ex ea commodo consequat. </p>
         </div>
     </div>
-    <div id="contentBlock3">
-        <div class="contentBlock3__contactUs">
+    <div id="contactUs">
+        <div class="contactUs_head">
             <span>Contact us!</span>
         </div>
-        <div class="contentBlock3__form">
+        <div class="contactUs_form">
             <form name="form" method="get">
-                <input name="login" class="contentBlock3__form--name" type="text" size="50" maxlength="30"
+                <input name="login" class="contactUs_form-name" type="text" size="50" maxlength="30"
                        placeholder="  Type here your name, please">
-                <input name="email" class="contentBlock3__form--email" type="text" size="50" maxlength="40"
+                <input name="email" class="contactUs_form-email" type="text" size="50" maxlength="40"
                        placeholder="  Type here your email, please">
-                <input name="phone" class="contentBlock3__form--phone" type="text" size="50" maxlength="40"
+                <input name="phone" class="contactUs_form-phone" type="text" size="50" maxlength="40"
                        placeholder="  Type here your phone, please">
-                <textarea name="question" class="contentBlock3__form--textarea" cols="50" rows="5"
+                <textarea name="question" class="contactUs_form-textarea" cols="50" rows="5"
                           placeholder="  Ask your question"></textarea>
-                <input type="submit" class="contentBlock3__form--submit" value="Send email!">
+                <input type="submit" class="contactUs_form-submit" value="Send email!">
 
+                <div class="anotherInputs">
                 <!--All inputs-->
-                <input type="text" name="firstname" placeholder="text">
-                <input type="password" name="psw" placeholder="password">
-                <input type="email" name="email" placeholder="email">
-                <span>Telephone: </span><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">
-                <span>Select a time: </span><input type="time" name="usr_time">
-                <span>Select a date: </span><input type="date" name="bday">
-                <span>Select a week:</span><input type="week" name="week_year">
-                <span>Select a month: </span><input type="month" name="bdaymonth">
-                <span>Select date and time: </span><input type="datetime-local" name="bdaytime">
-                <input type="radio" name="gender" value="male" checked> Male
-                <input type="radio" name="gender" value="female"> Female
-                <input type="checkbox" name="vehicle1" value="Bike"> I have a bike
-                <input type="checkbox" name="vehicle2" value="Car"> I have a car
-                <input type="button" onclick="alert('Hello World!')" value="Click Me!">
-                <span>Choose color:</span> <input type="color" name="favcolor">
-                <span>Select a file: </span><input type="file" name="myFile">
-                <span>Quantity (between 1 and 5): </span><input type="number" name="quantity" min="1" max="5">
-                <span>Quantity:</span><input type="number" name="points" min="0" max="100" step="10" value="30">
-                <span>Range (between 1 and 10): </span><input type="range" name="points" min="0" max="10">
-                <span>Search Google: </span><input type="search" name="googlesearch">
-                <span>Add your homepage: </span><input type="url" name="homepage" placeholder="http://google.com">
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
+                <input class="anotherInputs">
+                    <input type="text" name="firstname" placeholder="text">
+                    <input type="password" name="psw" placeholder="password">
+                    <input type="email" name="email" placeholder="email">
+                    <label>Telephone: </label><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">
+                    <label>Select a time: </label><input type="time" name="usr_time">
+                    <label>Select a date: </label><input type="date" name="bday">
+                    <label>Select a week:</label><input type="week" name="week_year">
+                    <label>Select a month: </label><input type="month" name="bdaymonth">
+                    <label>Select date and time: </label><input type="datetime-local" name="bdaytime">
+                    <input type="radio" name="gender" value="male" checked><label for="">Male</label>
+                    <input type="radio" name="gender" value="female"><label for="">Female</label>
+                    <input type="checkbox" name="vehicle1" value="Bike"><label for=""> I have a bike</label>
+                    <input type="checkbox" name="vehicle2" value="Car"><label for=""> I have a car</label>
+                    <input type="button" onclick="alert('Hello World!')" value="Click Me!">
+                    <label>Choose color:</label> <input type="color" name="favcolor">
+                    <label>Select a file: </label><input type="file" name="myFile">
+                    <label>Quantity (between 1 and 5): </label><input type="number" name="quantity" min="1" max="5">
+                    <label>Quantity:</label><input type="number" name="points" min="0" max="100" step="10" value="30">
+                    <label>Range (between 1 and 10): </label><input type="range" name="points" min="0" max="10">
+                    <label>Search Google: </label><input type="search" name="googlesearch">
+                    <label>Add your homepage: </label><input type="url" name="homepage" placeholder="http://google.com">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </div>
             </form>
         </div>
     </div>
 </div>
-</body>
 </body>
 </html>

@@ -14,18 +14,18 @@ a, button{
     cursor: pointer;
 }
 
-#contentBlock1 {
+#products {
     display: flex;
     background-color: #1abc9c;
     padding-bottom: 30px;
 }
 
-#contentBlock2 {
+#aboutUs {
     background-color: white;
     padding-bottom: 30px;
 }
 
-#contentBlock3 {
+#contactUs {
     background-color: #1abc9c;
 }
 
@@ -40,11 +40,11 @@ header {
     margin-top: 25px;
 }
 
-.contentBlock1__iphone{
+.products_iphone{
     width: 50%;
 }
 
-.contentBlock1__iphone--imgIPhone{
+.products_iphone-img{
     margin-left: 40%;
     padding-top: 30px;
 }
@@ -62,37 +62,37 @@ header {
     margin-right: 45px;
 }
 
-.contentBlock1__textBlock{
+.products_text{
     width: 50%;
     font-size: 1.05rem;
     color: white;
     margin-top: 85px;
 }
 
-.contentBlock1__textBlock--text{
+.products_text-text{
     color: #fcfaea;
     margin-top: 40px;
     width: 90%;
     font-size: 1.3rem;
 }
 
-#contentBlock2{
+#aboutUs{
     display: inline-flex;
     color: #536270;
 }
 
-.contentBlock2__content1{
+.aboutUs_1{
     padding-left: 10%;
 }
 
-.contentBlock2__content3{
+.aboutUs_3{
     padding-right: 10%;
 }
 
 
-.contentBlock2__content1,
-.contentBlock2__content2,
-.contentBlock2__content3{
+.aboutUs_1,
+.aboutUs_2,
+.aboutUs_3{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,9 +102,9 @@ header {
     text-align: center;
 }
 
-.contentBlock2__content2--icon,
-.contentBlock2__content3--icon,
-.contentBlock2__content1--icon{
+.aboutUs2_content-icon,
+.aboutUs3_content-icon,
+.aboutUs1_content-icon{
     width: 110px;
     height: 110px;
     background-color: #1abc9c;
@@ -118,23 +118,23 @@ i{
     margin-top: 30%;
 }
 
-.contentBlock3__contactUs{
+.contactUs_head{
     color: white;
     font-size: 3rem;
     text-align: center;
     padding-top: 30px;
 }
 
-.contentBlock3__form{
+.contactUs_form{
     text-align: center;
     margin-top: -30px;
     white-space: pre;
 }
 
-.contentBlock3__form--name,
-.contentBlock3__form--email,
-.contentBlock3__form--phone,
-.contentBlock3__form--textarea{
+.contactUs_form-name,
+.contactUs_form-email,
+.contactUs_form-phone,
+.contactUs_form-textarea{
     min-width: 400px;
     width: 600px;
     padding-top: 3px;
@@ -144,7 +144,7 @@ i{
     margin-top: 10px;
 }
 
-.contentBlock3__form--submit{
+.contactUs_form-submit{
     font-size: 1.5rem;
     color: #d8fdfd;
     padding: 10px 60px;
@@ -154,9 +154,10 @@ i{
     margin-top: 55px;
     margin-bottom: 50px;
     cursor: pointer;
+    outline: none;
 }
 
-button.contentBlock1__textBlock--buyButton{
+button.products_text-button{
     font-size: 1.5rem;
     color: #d8fdfd;
     padding: 10px 25px;
@@ -164,4 +165,19 @@ button.contentBlock1__textBlock--buyButton{
     border-radius: 5px;
     border: 2px solid white;
     margin-top: 40px;
+    outline: none;
+}
+
+.anotherInputs{
+    margin: 0 25%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+.anotherInputs input{
+    width: 300px;
+    color: white;
+    margin-bottom: 10px;
+    background-color: #c0994f;
 }
