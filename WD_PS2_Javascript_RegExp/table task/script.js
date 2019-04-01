@@ -37,15 +37,16 @@ const GOODS = [
     }
 ];
 
-/**
- *
- * @type {HTMLElement}
- */
+// object selector
 const total = document.getElementById("total");
+// new array
 let array = GOODS;
+// amount of goods
 let sum = 0;
-let flag = true;
+// sortByName sortFlag
+let sortFlag = true;
 
+// initial array output
 array.forEach(function (item) {
     createTable(item);
     sum = sum + (item.amount * item.price);
@@ -53,7 +54,7 @@ array.forEach(function (item) {
 });
 
 /**
- *
+ * eventListener
  * @type {HTMLElement}
  */
 const input = document.getElementById("input");
@@ -62,7 +63,7 @@ input.oninput = function () {
 };
 
 /**
- *
+ * eventListener
  * @type {HTMLElement}
  */
 const select = document.getElementById("select");
@@ -71,73 +72,77 @@ select.onchange = function () {
 };
 
 /**
- *
+ * eventListener
  * @type {HTMLElement}
  */
 const sortCategory = document.getElementById("category");
 sortCategory.onclick = function () {
-    sort(2);
+    sortByCategory();
 };
 
 /**
- *
+ * eventListener
  * @type {HTMLElement}
  */
 const sortName = document.getElementById("name");
 sortName.onclick = function () {
-    sort(1);
+    sortByName();
 };
 
 /**
- *
+ * sorting method by name
  * @param categoryFlag
  */
-function sort(categoryFlag) {
-    if (categoryFlag === 1) {
-        if (flag === true) {
-            array.sort(function(a,b){
-               if (a.name > b.name){
-                   return 1;
-               }
-               return -1;
-            });
-            filterOut();
-            flag = !flag;
-        } else {
-            array.sort(function(a,b){
-                if (a.name < b.name){
-                    return 1;
-                }
-                return -1;
-            });
-            filterOut();
-            flag = !flag;
-        }
+function sortByName(categoryFlag) {
+    if (sortFlag === true) {
+        array.sort(function (a, b) {
+            if (a.name > b.name) {
+                return 1;
+            }
+            return -1;
+        });
+        filterOut();
+        sortFlag = !sortFlag;
     } else {
-        if (flag === true) {
-            array.sort(function(a,b){
-                if (a.category > b.category){
-                    return 1;
-                }
-                return -1;
-            });
-            filterOut();
-            flag = !flag;
-        } else {
-            array.sort(function(a,b){
-                if (a.category < b.category){
-                    return 1;
-                }
-                return -1;
-            });
-            filterOut();
-            flag = !flag;
-        }
+        array.sort(function (a, b) {
+            if (a.name < b.name) {
+                return 1;
+            }
+            return -1;
+        });
+        filterOut();
+        sortFlag = !sortFlag;
     }
 }
 
 /**
- *
+ * sorting method by category
+ * @param categoryFlag
+ */
+function sortByCategory(categoryFlag) {
+    if (sortFlag === true) {
+        array.sort(function(a,b){
+            if (a.category > b.category){
+                return 1;
+            }
+            return -1;
+        });
+        filterOut();
+        sortFlag = !sortFlag;
+    } else {
+        array.sort(function(a,b){
+            if (a.category < b.category){
+                return 1;
+            }
+            return -1;
+        });
+        filterOut();
+        sortFlag = !sortFlag;
+    }
+}
+
+/**
+ * input filtering method
  */
 function filterOut() {
     let tbody = document.getElementById("tbody");
@@ -149,7 +154,7 @@ function filterOut() {
 }
 
 /**
- *
+ * category filtering method
  * @param tbody
  */
 function filter(tbody) {
@@ -190,7 +195,7 @@ function filter(tbody) {
 }
 
 /**
- *
+ * create table method
  * @param item
  */
 function createTable(item) {

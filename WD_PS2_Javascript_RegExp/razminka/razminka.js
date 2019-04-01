@@ -1,3 +1,7 @@
+/**
+ * this method calculates the sum of the numbers in the interval
+ * between the user entered (for example, from -100 to 100), adding only numbers ending in 2.3 and 7
+ */
 function calculateNumbers() {
     const fNum = +document.getElementById("fNum").value;
     const sNum = +document.getElementById("sNum").value;
@@ -17,6 +21,9 @@ function calculateNumbers() {
     }
 }
 
+/**
+ * This method calculates the time from the number of seconds entered by the user.
+ */
 function calculateFromSeconds() {
     let sNum = +document.getElementById("timeInput1").value;
     const answer = document.getElementsByClassName("answerEx2")[0];
@@ -30,6 +37,9 @@ function calculateFromSeconds() {
     answer.innerHTML = "Answer is:  " + hNum + ":" + mNum + ":" + sNum;
 }
 
+/**
+ * This method calculates the number of seconds from the time entered by the user.
+ */
 function calculateToSeconds() {
     let time = document.getElementById("timeInput2").value;
     const answer = document.getElementsByClassName("answerEx2_1")[0];
@@ -44,6 +54,9 @@ function calculateToSeconds() {
     answer.innerHTML = "Answer is:  " + seconds + " sec";
 }
 
+/**
+ * this method count the time between dates and display a message to the user
+ */
 function calculateTimeBetween() {
     const ftime = document.getElementById("timeInput3").value;
     const stime = document.getElementById("timeInput4").value;
@@ -59,6 +72,9 @@ function calculateTimeBetween() {
         " minute (s).";
 }
 
+/**
+ * this method draws a chessboard depending on the size entered by the user
+ */
 function drawChessBoard() {
     let boardSize = document.getElementById("chess").value;
     const answer = document.getElementsByClassName("answerEx4_1")[0];
@@ -96,6 +112,11 @@ function drawChessBoard() {
     }
 }
 
+/**
+ * this method processes the regular expressions entered by the user
+ * and the text then highlights the matches in the text.
+ * @type {HTMLElement}
+ */
 const link = document.getElementById("link");
 link.addEventListener('focus', (e) => {
     const answer = document.getElementsByClassName("answerEx5")[0];
@@ -155,12 +176,19 @@ link.addEventListener('blur', (e) => {
     });
 });
 
+/**
+ *
+ * @type {HTMLElement}
+ */
 const text = document.getElementById("regExpText");
 text.addEventListener('focus', (e) => {
     const answer = document.getElementsByClassName("answerEx6")[0];
     answer.innerHTML = "";
 });
 
+/**
+ *
+ */
 text.addEventListener('blur', (e) => {
     let regExp = document.getElementById("regExp").value;
     if (regExp.charAt(regExp.length - 1) === 'g' || regExp.charAt(regExp.length - 1) === 'i'
