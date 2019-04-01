@@ -154,39 +154,35 @@ function filterOut() {
  */
 function filter(tbody) {
     sum = 0;
+    tbody.innerHTML = "";
     if (select.value === "") {
-        tbody.innerHTML = "";
         array.forEach(function (item) {
             if (item.name.toLowerCase().indexOf(input.value) !== -1) {
                 createTable(item);
-                sum = sum + (item.amount * item.price);
             }
         });
     }
     if (select.value === "supplies") {
-        tbody.innerHTML = "";
         array.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1 && item.category.indexOf(select.value) !== -1) {
+            if (item.name.toLowerCase().indexOf(input.value) !== -1
+                && item.category.indexOf(select.value) !== -1) {
                 createTable(item);
-                sum = sum + (item.amount * item.price);
             }
         });
     }
     if (select.value === "furniture") {
-        tbody.innerHTML = "";
         array.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1 && item.category.indexOf(select.value) !== -1) {
+            if (item.name.toLowerCase().indexOf(input.value) !== -1
+                && item.category.indexOf(select.value) !== -1) {
                 createTable(item);
-                sum = sum + (item.amount * item.price);
             }
         });
     }
     if (select.value === "other") {
-        tbody.innerHTML = "";
         array.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1 && item.category.indexOf(select.value) !== -1) {
+            if (item.name.toLowerCase().indexOf(input.value) !== -1
+                && item.category.indexOf(select.value) !== -1) {
                 createTable(item);
-                sum = sum + (item.amount * item.price);
             }
         });
     }
@@ -214,4 +210,5 @@ function createTable(item) {
     td.append(item.price);
     tr.appendChild(td);
     tbody.appendChild(tr);
+    sum += (item.amount * item.price);
 }
