@@ -39,14 +39,14 @@ const GOODS = [
 
 // object selector
 const total = document.getElementById("total");
-// new array
+// new NAMES
 let array = GOODS;
 // amount of goods
 let sum = 0;
 // sortByName sortFlag
 let sortFlag = true;
 
-// initial array output
+// initial NAMES output
 array.forEach(function (item) {
     createTable(item);
     sum = sum + (item.amount * item.price);

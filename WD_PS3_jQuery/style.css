@@ -5,17 +5,49 @@ body{
 }
 
 .wrapper{
-    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.selector{
+.newSelector{
     margin-top: 100px;
-    background-color: yellow;
-    width: 500px;
-    height: 50px;
+    background-color: white;
+    font-size: 2rem;
+    font-family: Helvetica;
+    color: darkgray;
+    width: 400px;
     border: 1px solid blue;
     border-radius: 5px;
+}
+
+.option, .fOption{
+    display: block;
+    list-style-type: none;
+    padding: 10px 40px;
+    border: 1px solid lightgray;
+}
+
+li{
+    display: none;
+}
+
+img{
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+label{
+    font-size: 2rem;
+}
+
+ul{
+    padding-inline-start: 0;
+    margin-block-end: 0;
+    margin-block-start  : 0;
+}
+
+span{
+    margin-left: 30%;
 }
