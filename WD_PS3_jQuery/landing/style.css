@@ -176,3 +176,12 @@ button.products_text-button{
     margin-bottom: 10px;
     background-color: #c0994f;
 }
+
+#scrollUp{
+    position: fixed;
+    bottom: 25px;
+    right: 35px;
+    cursor: pointer;
+    font-size: 3rem;
+    color: lightblue;
+}

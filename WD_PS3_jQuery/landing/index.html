@@ -15,9 +15,9 @@
 <header>
     <a href="#header"><img src="images/N++.png" class="imgN" alt="logo"/></a>
     <nav class="links">
-        <a href="#products" class="links__style">PRODUCTS</a>
-        <a href="#aboutUs" class="links__style">ABOUT US</a>
-        <a href="#contactUs" class="links__style">CONTACT US</a>
+        <a href="#products" id="productScroll" class="links__style">PRODUCTS</a>
+        <a href="#aboutUs" id="aboutScroll" class="links__style">ABOUT US</a>
+        <a href="#contactUs" id="sontactScroll" class="links__style">CONTACT US</a>
     </nav>
 </header>
 <section class="wrapper">
@@ -102,37 +102,39 @@
                         rows="5"
                         placeholder=" Ask your question"></textarea>
                 <input type="submit" class="contactUs_form-submit" value="Send email!">
-
-<!--                <section class="anotherInputs">-->
-<!--                &lt;!&ndash;All inputs&ndash;&gt;-->
-<!--                <input class="anotherInputs">-->
-<!--                    <input type="text" name="firstname" placeholder="text">-->
-<!--                    <input type="password" name="psw" placeholder="password">-->
-<!--                    <input type="email" name="email" placeholder="email">-->
-<!--                    <label>Telephone: </label><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">-->
-<!--                    <label>Select a time: </label><input type="time" name="usr_time">-->
-<!--                    <label>Select a date: </label><input type="date" name="bday">-->
-<!--                    <label>Select a week:</label><input type="week" name="week_year">-->
-<!--                    <label>Select a month: </label><input type="month" name="bdaymonth">-->
-<!--                    <label>Select date and time: </label><input type="datetime-local" name="bdaytime">-->
-<!--                    <input type="radio" name="gender" id="male" value="male" checked><label for="male">Male</label>-->
-<!--                    <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>-->
-<!--                    <input type="checkbox" name="vehicle1" id="bike" value="Bike"><label for="bike"> I have a bike</label>-->
-<!--                    <input type="checkbox" name="vehicle2" id="car" value="Car"><label for="car"> I have a car</label>-->
-<!--                    <input type="button" onclick="alert('Hello World!')" value="Click Me!">-->
-<!--                    <label>Choose color:</label> <input type="color" name="favcolor">-->
-<!--                    <label>Select a file: </label><input type="file" name="myFile">-->
-<!--                    <label>Quantity (between 1 and 5): </label><input type="number" name="quantity" min="1" max="5">-->
-<!--                    <label>Quantity:</label><input type="number" name="points" min="0" max="100" step="10" value="30">-->
-<!--                    <label>Range (between 1 and 10): </label><input type="range" name="points" min="0" max="10">-->
-<!--                    <label>Search Google: </label><input type="search" name="googlesearch">-->
-<!--                    <label>Add your homepage: </label><input type="url" name="homepage" placeholder="http://google.com">-->
-<!--                    <input type="submit" value="Submit">-->
-<!--                    <input type="reset" value="Reset">-->
-<!--                </section>-->
             </form>
+            <!--                <section class="anotherInputs">-->
+            <!--                &lt;!&ndash;All inputs&ndash;&gt;-->
+            <!--                <input class="anotherInputs">-->
+            <!--                    <input type="text" name="firstname" placeholder="text">-->
+            <!--                    <input type="password" name="psw" placeholder="password">-->
+            <!--                    <input type="email" name="email" placeholder="email">-->
+            <!--                    <label>Telephone: </label><input type="tel" name="usrtel" placeholder="+38-050-000-00-00">-->
+            <!--                    <label>Select a time: </label><input type="time" name="usr_time">-->
+            <!--                    <label>Select a date: </label><input type="date" name="bday">-->
+            <!--                    <label>Select a week:</label><input type="week" name="week_year">-->
+            <!--                    <label>Select a month: </label><input type="month" name="bdaymonth">-->
+            <!--                    <label>Select date and time: </label><input type="datetime-local" name="bdaytime">-->
+            <!--                    <input type="radio" name="gender" id="male" value="male" checked><label for="male">Male</label>-->
+            <!--                    <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>-->
+            <!--                    <input type="checkbox" name="vehicle1" id="bike" value="Bike"><label for="bike"> I have a bike</label>-->
+            <!--                    <input type="checkbox" name="vehicle2" id="car" value="Car"><label for="car"> I have a car</label>-->
+            <!--                    <input type="button" onclick="alert('Hello World!')" value="Click Me!">-->
+            <!--                    <label>Choose color:</label> <input type="color" name="favcolor">-->
+            <!--                    <label>Select a file: </label><input type="file" name="myFile">-->
+            <!--                    <label>Quantity (between 1 and 5): </label><input type="number" name="quantity" min="1" max="5">-->
+            <!--                    <label>Quantity:</label><input type="number" name="points" min="0" max="100" step="10" value="30">-->
+            <!--                    <label>Range (between 1 and 10): </label><input type="range" name="points" min="0" max="10">-->
+            <!--                    <label>Search Google: </label><input type="search" name="googlesearch">-->
+            <!--                    <label>Add your homepage: </label><input type="url" name="homepage" placeholder="http://google.com">-->
+            <!--                    <input type="submit" value="Submit">-->
+            <!--                    <input type="reset" value="Reset">-->
+            <!--                </section>-->
         </div>
     </section>
 </section>
+<div id="scrollUp"><i class="fas fa-arrow-circle-up"></i></div>
+<script src="jQuery.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
