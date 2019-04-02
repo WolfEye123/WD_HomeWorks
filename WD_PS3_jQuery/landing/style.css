@@ -1,13 +1,13 @@
 html, body {
     height: 100vh;
-    min-width: 1000px;
-    max-width: 1366px;
+    width: 100%;
     margin: 0 auto;
-    font-family: Helvetica;
+    font-family: "Helvetica";
 }
 
-* html .wrapper {
+.wrapper {
     height: 100%;
+    width: 100%;
 }
 
 a, button{
@@ -15,6 +15,7 @@ a, button{
 }
 
 #products {
+    width: 100%;
     display: flex;
     background-color: #1abc9c;
     padding-bottom: 30px;
@@ -26,40 +27,41 @@ a, button{
 }
 
 #contactUs {
+    width: 100%;
     background-color: #1abc9c;
 }
 
 header {
     background-color: white;
     display: flex;
+    justify-content: space-around;
     height: 100px;
 }
 
 .imgN {
-    margin-left: 100%;
     margin-top: 25px;
 }
 
 .products_iphone{
     width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .products_iphone-img{
-    margin-left: 40%;
     padding-top: 30px;
 }
 
 .links {
-    margin-left: 50%;
-    margin-top: 40px;
-    display: inline-flex;
+    padding-top: 40px;
+    display: flex;
 }
 
 .links__style{
     text-decoration: none;
     color: #16a085;
     font-size: 1.1rem;
-    margin-right: 45px;
+    padding: 0 15px 0 15px;
 }
 
 .products_text{
@@ -79,24 +81,15 @@ header {
 #aboutUs{
     display: inline-flex;
     color: #536270;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.aboutUs_1{
-    padding-left: 10%;
-}
-
-.aboutUs_3{
-    padding-right: 10%;
-}
-
-
-.aboutUs_1,
-.aboutUs_2,
-.aboutUs_3{
+.aboutUs{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 33.3%;
+    justify-content: space-around;
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
@@ -127,21 +120,23 @@ i{
 
 .contactUs_form{
     text-align: center;
-    margin-top: -30px;
-    white-space: pre;
+    margin-top: 20px;
 }
 
-.contactUs_form-name,
-.contactUs_form-email,
-.contactUs_form-phone,
-.contactUs_form-textarea{
-    min-width: 400px;
-    width: 600px;
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactUs_form-inputs{
+    width: 40%;
     padding-top: 3px;
     padding-bottom: 3px;
-    font-size: 1.4rem;
     color: #000000;
     margin-top: 10px;
+    resize: none;
 }
 
 .contactUs_form-submit{
