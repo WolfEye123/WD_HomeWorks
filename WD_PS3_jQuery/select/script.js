@@ -9,35 +9,42 @@ const NAMES = [
 const ul = "<ul class='select'></ul>";
 const li = "<li></li>";
 let flag = true;
+const select = $('.select');
+const newSelector = $('.newSelector');
+const liHide = $('li.hide');
+const liFOption = $('li.fOption');
+const liLast = $('li:last');
 
 $(document).ready(() => {
-    $('.newSelector').append(ul);
-    $('.select').append($(li).addClass('fOption').html(`<label>Select Friend</label><span>▼</span>`));
+    newSelector.append(ul);
+    select.append($(li).addClass('fOption').html(`<label>Select Friend</label><span>▼</span>`));
     for (let name of NAMES) {
-        $('.select').append($(li).addClass('hide').html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label>`));
+        select.append($(li).addClass('hide').html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label>`));
     }
-    $('li:last').css('border','none');
-    $('li.hide').mouseenter(function () {
+
+    liLast.css('border','none');
+
+    liHide.mouseenter(function () {
         $(this).css('background-color', 'aliceblue');
     });
-    $('li.hide').mouseleave(function () {
+    liHide.mouseleave(function () {
        $(this).css('background-color', 'white');
     });
 
 
-    $('li.fOption').click(function () {
+    liFOption.click(function () {
         if (flag === false) {
             flag = !flag;
-            $('li.fOption').html(`<label>Select Friend</label><span>▼</span>`);
+            liFOption.html(`<label>Select Friend</label><span>▼</span>`);
         }
         $('li').toggleClass('option');
     })
 
-    $('li.hide').click(function () {
+    liHide.click(function () {
         $('li').toggleClass('option');
         let name = $(this).text();
         if (flag) {
-            $('li.fOption').html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label><span>▼</span>`);
+            liFOption.html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label><span>▼</span>`);
             flag = !flag;
         }
     })
