@@ -3,11 +3,6 @@ const NAMES = [
     "Elliot Fu",
     "Stevie Feliciano",
     "Christian",
-    "Matt",
-    "Jenny Hess",
-    "Elliot Fu",
-    "Stevie Feliciano",
-    "Christian",
     "Matt"
 ];
 
@@ -22,6 +17,12 @@ $(document).ready(() => {
         $('.select').append($(li).addClass('hide').html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label>`));
     }
     $('li:last').css('border','none');
+    $('li.hide').mouseenter(function () {
+        $(this).css('background-color', 'aliceblue');
+    });
+    $('li.hide').mouseleave(function () {
+       $(this).css('background-color', 'white');
+    });
 
 
     $('li.fOption').click(function () {
