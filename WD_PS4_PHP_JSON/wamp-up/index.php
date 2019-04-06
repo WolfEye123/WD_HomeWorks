@@ -1,6 +1,6 @@
 <?php
 session_start();
-isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] = 1;
+isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] = 1;
 
 ?>
 
@@ -24,7 +24,7 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
                 <input type="text" name="sNum1" class="input" placeholder="Enter second number" required>
                 <input type="submit" class="submit" value="Calculate">
                 <div class="answerEx">
-                    <?= isset($_SESSION["task1"]) ? "Answer is: " . $_SESSION["task1"] : "Answer is:" ?>
+                    <?= isset($_SESSION['task1']) ? "Answer is: " . $_SESSION['task1'] : "Answer is:" ?>
                 </div>
             </form>
         </section>
@@ -41,7 +41,7 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
                 <input type="text" name="sNum2" class="input" placeholder="Enter second number" required>
                 <input type="submit" class="submit" value="Calculate">
                 <div class="answerEx">
-                    <?= isset($_SESSION["task2"]) ? "Answer is: " . $_SESSION["task2"] : "Answer is:" ?>
+                    <?= isset($_SESSION['task2']) ? "Answer is: " . $_SESSION['task2'] : "Answer is:" ?>
                 </div>
             </form>
         </section>
@@ -70,6 +70,26 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
                 </div>
             </form>
         </section>
+        <section>
+            <div class="ex">Warm up task № 4</div>
+            <div class="exText">
+                <label>ChessBoard<br>Max size(25x25)</label>
+            </div>
+            <form action="toDo.php" method="post" class="form">
+                <input type="hidden" name="function" value="drawChessBoard">
+                <input type="text" name="chessboard" class="input" placeholder="Enter chessboard size" required>
+                <input type="submit" class="submit" value="Draw ChessBoard">
+                <div id="answerEx4_1" class="answerEx4">
+                    <?php if (isset($_SESSION['chessBoard']) && $_SESSION['chessBoard'] == "") {
+                        $length = count($_SESSION['chessBoard_div']);
+                        for ($i = 0; $i < $length; $i++) {
+                            echo $_SESSION['chessBoard_div'][$i];
+                        };
+                    } ?>
+                </div>
+                <div class="answerEx"></div>
+            </form>
+        </section>
         <section class="visitors">
             <div class="ex">Warm up task № 7</div>
             <div class="exText">
@@ -78,7 +98,7 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
                 </label>
             </div>
             <div class="answerEx">
-                <label>Visitors: <?= isset($_SESSION["visitors"]) ? $_SESSION["visitors"] : 0 ?></label>
+                <label>Visitors: <?= isset($_SESSION['visitors']) ? $_SESSION['visitors'] : 0 ?></label>
             </div>
         </section>
     </section>
@@ -87,9 +107,11 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
 
 <?php
 unset(
-    $_SESSION["task1"],
-    $_SESSION["task2"],
-    $_SESSION["task3"],
-    $_SESSION["task3_1"]
+    $_SESSION['task1'],
+    $_SESSION['task2'],
+    $_SESSION['task3'],
+    $_SESSION['task3_1'],
+    $_SESSION['chessBoard'],
+    $_SESSION['chessBoard_div']
 );
 ?>

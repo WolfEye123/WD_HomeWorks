@@ -61,6 +61,12 @@ section, .form{
     background: white;
 }
 
+.block{
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
 .input{
     margin-bottom: 20px;
     width: 250px;
@@ -75,5 +81,10 @@ section, .form{
     outline: none;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+.answerEx4{
+    color: #c7c9c6;
+    font-size: 1.5rem;
 }
 

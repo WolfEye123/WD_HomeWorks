@@ -50,7 +50,7 @@ function task3()
         if (move_uploaded_file($_FILES['upload']['tmp_name'], $path)) {
             $_SESSION["task3"] = "The file " . basename($_FILES['upload']['name']) .
                 " has been uploaded" . "<br>";
-            task3_1();
+            task3_readDir();
         } else {
             $_SESSION["task3"] = "There was an error uploading the file \"" .
                 basename($_FILES['upload']['name']) . "\" please try again!";
@@ -58,7 +58,7 @@ function task3()
     }
 }
 
-function task3_1()
+function task3_readDir()
 {
     $path = 'images/';
     if ($dir = opendir('images/')) {
@@ -68,9 +68,9 @@ function task3_1()
         while (false !== ($file = readdir($dir))) {
             if (($file != ".") && ($file != "..")) {
                 $size = filesize($path . $file);
-                $size = countSize($size);
-                $preview = checkImage($path . $file);
-                $_SESSION['task3_1'][$i] = "$preview <a download href='" . $path . $file . "'" . ">" .
+                $size = task3_countFileSize($size);
+                $imagePreview = task3_checkImage($path . $file);
+                $_SESSION['task3_1'][$i] = "$imagePreview <a download href='" . $path . $file . "'" . ">" .
                     $file . " ( " . $size[0] . $sizeExtension[$size[1]] . " )</a><br>";
                 $i++;
             }
@@ -80,7 +80,7 @@ function task3_1()
     header("Location: index.php");
 }
 
-function checkImage($file)
+function task3_checkImage($file)
 {
     $a = getimagesize($file);
     $image_type = $a[2];
@@ -92,7 +92,7 @@ function checkImage($file)
     return $preview;
 }
 
-function countSize($size)
+function task3_countFileSize($size)
 {
     // count to kB
     $size = round($size / 1024.0, 2);
@@ -107,4 +107,42 @@ function countSize($size)
     }
     $size = [$size, $counter];
     return $size;
+}
+
+function drawChessBoard()
+{
+    $_SESSION['chessBoard'] = "";
+    $size = $_POST['chessboard'];
+    $size = explode('x', $size, 2);
+    $x = +$size[0];
+    $y = +$size[1];
+    if ($x < 0 || $y < 0 || $x > 25 || $y > 25) {
+        $_SESSION['chessBoard_div'][0] = "Incorrect size. Please try again.";
+        header("Location: index.php");
+        return;
+    } else {
+        $_SESSION['chessBoard'] = "";
+    }
+    $flag = true;
+    $_SESSION['chessBoard_div'][0] = '<div style="width:'.($x * 50).'; height:'.($y * 50).'">';
+    $counter = 1;
+    for ($i = 0; $i < $y; $i++) {
+        for ($j = 0; $j < $x; $j++) {
+            if ($flag) {
+                $div = '<div class="block black"></div>';
+            } else {
+                $div = '<div class="block white"></div>';
+            }
+            $_SESSION['chessBoard_div'][$counter++] = $div;
+            $flag = !$flag;
+            if ($j == $x - 1 && $x % 2 != 0) {
+                $flag = !$flag;
+            }
+        }
+        $flag = !$flag;
+        $_SESSION['chessBoard_div'][$counter++] = '<br>';
+    }
+    $_SESSION['chessBoard_div'][$counter] = '</div>';
+
+    header("Location: index.php");
 }
