@@ -90,6 +90,20 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                 <div class="answerEx"></div>
             </form>
         </section>
+        <section>
+            <div class="ex">Warm up task № 5</div>
+            <div class="exText">
+                <label>Find the sum of digits of the entered number ( example: 123 = 6 )</label>
+            </div>
+            <form action="toDo.php" method="post" class="form">
+                <input type="hidden" name="function" value="calculateNumber">
+                <input type="text" name="number" class="input" placeholder="Enter number" required>
+                <input type="submit" class="submit" value="Calculate">
+                <div class="answerEx">
+                    <?= isset($_SESSION['task5']) ? "Answer is: " . $_SESSION['task5'] : "Answer is:" ?>
+                </div>
+            </form>
+        </section>
         <section class="visitors">
             <div class="ex">Warm up task № 7</div>
             <div class="exText">
@@ -112,6 +126,7 @@ unset(
     $_SESSION['task3'],
     $_SESSION['task3_1'],
     $_SESSION['chessBoard'],
-    $_SESSION['chessBoard_div']
+    $_SESSION['chessBoard_div'],
+    $_SESSION['task5'],
 );
 ?>

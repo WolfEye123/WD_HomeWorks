@@ -146,3 +146,14 @@ function drawChessBoard()
 
     header("Location: index.php");
 }
+
+function calculateNumber(){
+    $result = 0;
+    $numbers = $_POST['number'];
+    $numbers = str_split($numbers);
+    foreach ($numbers as $number){
+        $result += $number;
+    }
+    $_SESSION['task5'] = $result;
+    header("Location: index.php");
+}
