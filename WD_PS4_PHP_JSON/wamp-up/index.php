@@ -80,7 +80,7 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                 <input type="text" name="chessboard" class="input" placeholder="Enter chessboard size" required>
                 <input type="submit" class="submit" value="Draw ChessBoard">
                 <div id="answerEx4_1" class="answerEx4">
-                    <?php if (isset($_SESSION['chessBoard']) && $_SESSION['chessBoard'] == "") {
+                    <?php if (isset($_SESSION['task4']) && $_SESSION['task4'] == "") {
                         $length = count($_SESSION['chessBoard_div']);
                         for ($i = 0; $i < $length; $i++) {
                             echo $_SESSION['chessBoard_div'][$i];
@@ -96,11 +96,25 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                 <label>Find the sum of digits of the entered number ( example: 123 = 6 )</label>
             </div>
             <form action="toDo.php" method="post" class="form">
-                <input type="hidden" name="function" value="calculateNumber">
+                <input type="hidden" name="function" value="task5">
                 <input type="text" name="number" class="input" placeholder="Enter number" required>
                 <input type="submit" class="submit" value="Calculate">
                 <div class="answerEx">
                     <?= isset($_SESSION['task5']) ? "Answer is: " . $_SESSION['task5'] : "Answer is:" ?>
+                </div>
+            </form>
+        </section>
+        <section>
+            <div class="ex">Warm up task № 6</div>
+            <div class="exText">
+                <label>Generate an array of random integers from 1 to 10, the length of the array is 100.<br>
+                    Remove duplicates from the array, sort, revert and multiply each element by two</label>
+            </div>
+            <form action="toDo.php" method="post" class="form">
+                <input type="hidden" name="function" value="task6">
+                <input type="submit" class="submit" value="Calculate">
+                <div class="answerEx">
+                    <?= isset($_SESSION['task6']) ? "Answer is: " . $_SESSION['task6'] : "Answer is:" ?>
                 </div>
             </form>
         </section>
@@ -125,8 +139,9 @@ unset(
     $_SESSION['task2'],
     $_SESSION['task3'],
     $_SESSION['task3_1'],
-    $_SESSION['chessBoard'],
+    $_SESSION['task4'],
     $_SESSION['chessBoard_div'],
     $_SESSION['task5'],
+    $_SESSION['task6'],
 );
 ?>

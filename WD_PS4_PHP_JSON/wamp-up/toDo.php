@@ -111,7 +111,7 @@ function task3_countFileSize($size)
 
 function drawChessBoard()
 {
-    $_SESSION['chessBoard'] = "";
+    $_SESSION['task4'] = "";
     $size = $_POST['chessboard'];
     $size = explode('x', $size, 2);
     $x = +$size[0];
@@ -121,10 +121,10 @@ function drawChessBoard()
         header("Location: index.php");
         return;
     } else {
-        $_SESSION['chessBoard'] = "";
+        $_SESSION['task4'] = "";
     }
     $flag = true;
-    $_SESSION['chessBoard_div'][0] = '<div style="width:'.($x * 50).'; height:'.($y * 50).'">';
+    $_SESSION['chessBoard_div'][0] = '<div style="width:' . ($x * 50) . '; height:' . ($y * 50) . '">';
     $counter = 1;
     for ($i = 0; $i < $y; $i++) {
         for ($j = 0; $j < $x; $j++) {
@@ -147,13 +147,37 @@ function drawChessBoard()
     header("Location: index.php");
 }
 
-function calculateNumber(){
+function task5()
+{
     $result = 0;
     $numbers = $_POST['number'];
     $numbers = str_split($numbers);
-    foreach ($numbers as $number){
+    foreach ($numbers as $number) {
         $result += $number;
     }
     $_SESSION['task5'] = $result;
+    header("Location: index.php");
+}
+
+function task6()
+{
+    $result = [];
+    for ($i = 0; $i < 100; $i++) {
+        $result[$i] = rand(1,10);
+    }
+    $result = array_unique($result);
+    arsort($result);
+    $i = 0;
+    $result1 = [];
+    foreach ($result as $number) {
+        if ($number != null){
+            $result1[$i++] = $number * 2;
+        }
+    }
+    arsort($result1);
+    foreach($result1 as $number){
+        $result .= " '$number'";
+    }
+    $_SESSION['task6'] = $result;
     header("Location: index.php");
 }
