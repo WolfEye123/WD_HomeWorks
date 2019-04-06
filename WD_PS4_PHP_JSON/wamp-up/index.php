@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] = 1;
+
 ?>
 
     <!DOCTYPE html>
@@ -58,9 +58,28 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
                 <input type="file" name="upload" class="input" placeholder="Enter file">
                 <input type="submit" class="submit" value="Upload">
                 <div class="answerEx">
-                    <?= isset($_SESSION["task3"]) ? $_SESSION["task3"] : "" ?>
+                    <label class="download">
+                        <?php if (isset($_SESSION['task3'])) {
+                            $length = count($_SESSION['task3_1']);
+                            for ($i = 2; $i < $length; $i++) {
+                                echo $_SESSION['task3_1'][$i];
+                            };
+                        } ?>
+
+                    </label>
                 </div>
             </form>
+        </section>
+        <section class="visitors">
+            <div class="ex">Warm up task № 7</div>
+            <div class="exText">
+                <label>
+                    The page should have a counter for counting page visits through pkhp sessions.
+                </label>
+            </div>
+            <div class="answerEx">
+                <label>Visitors: <?= isset($_SESSION["visitors"]) ? $_SESSION["visitors"] : 0 ?></label>
+            </div>
         </section>
     </section>
     </body>
@@ -70,6 +89,7 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
 unset(
     $_SESSION["task1"],
     $_SESSION["task2"],
-    $_SESSION["task3"]
+    $_SESSION["task3"],
+    $_SESSION["task3_1"]
 );
 ?>

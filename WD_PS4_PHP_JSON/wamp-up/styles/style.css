@@ -14,6 +14,17 @@ body{
     align-items: center;
 }
 
+input[type="file"],
+a{
+    text-decoration: none;
+    color: #c0994f;
+}
+
+.answerEx label{
+    color: #c0994f;
+    font-size: 2rem;
+}
+
 section, .form{
     display: flex;
     flex-direction: column;
