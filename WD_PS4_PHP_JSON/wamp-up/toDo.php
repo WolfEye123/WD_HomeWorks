@@ -66,15 +66,30 @@ function task3_1()
         $sizeExtension = ["kB", "MB", "GB", "TB"];
         $i = 0;
         while (false !== ($file = readdir($dir))) {
-            $size = filesize($path . $file);
-            $size = countSize($size);
-            $_SESSION['task3_1'][$i] = "<a download href='" . $path . $file . "'" . ">" .
-                $file . " ( " . $size[0] . $sizeExtension[$size[1]] . " )</a><br>";
-            $i++;
+            if (($file != ".") && ($file != "..")) {
+                $size = filesize($path . $file);
+                $size = countSize($size);
+                $preview = checkImage($path . $file);
+                $_SESSION['task3_1'][$i] = "$preview <a download href='" . $path . $file . "'" . ">" .
+                    $file . " ( " . $size[0] . $sizeExtension[$size[1]] . " )</a><br>";
+                $i++;
+            }
         }
         closedir($dir);
     }
     header("Location: index.php");
+}
+
+function checkImage($file)
+{
+    $a = getimagesize($file);
+    $image_type = $a[2];
+    if (in_array($image_type, array(IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP))) {
+        $preview = "<img src='$file' width='25' height='25'  alt='$file'>";
+    } else {
+        $preview = "";
+    }
+    return $preview;
 }
 
 function countSize($size)

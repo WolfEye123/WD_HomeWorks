@@ -55,13 +55,13 @@ isset($_SESSION["visitors"]) ? $_SESSION["visitors"]++ : $_SESSION["visitors"] =
             </div>
             <form action="toDo.php" method="post" enctype="multipart/form-data" class="form">
                 <input type="hidden" name="function" value="task3">
-                <input type="file" name="upload" class="input" placeholder="Enter file">
+                <input type="file" name="upload" class="input" placeholder="Enter file" required>
                 <input type="submit" class="submit" value="Upload">
                 <div class="answerEx">
                     <label class="download">
                         <?php if (isset($_SESSION['task3'])) {
                             $length = count($_SESSION['task3_1']);
-                            for ($i = 2; $i < $length; $i++) {
+                            for ($i = 0; $i < $length; $i++) {
                                 echo $_SESSION['task3_1'][$i];
                             };
                         } ?>
