@@ -129,6 +129,23 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                 <label>Visitors: <?= isset($_SESSION['visitors']) ? $_SESSION['visitors'] : 0 ?></label>
             </div>
         </section>
+        <section>
+            <div class="ex">Warm up task № 8</div>
+            <div class="exText">
+                <label>Count the number of lines, letters and spaces in the entered text. <br>
+                    Consider Cyrillic, emoji and special characters</label>
+            </div>
+            <form action="toDo.php" method="post" class="form">
+                <input type="hidden" name="function" value="task8">
+                <label>
+                    <textarea name="textarea" class="textarea" placeholder=" Enter text" required></textarea>
+                </label>
+                <input type="submit" class="submit" value="Calculate">
+                <div class="answerEx">
+                    <?= isset($_SESSION['task8']) ? "Answer is: " . $_SESSION['task8'] : "Answer is:" ?>
+                </div>
+            </form>
+        </section>
     </section>
     </body>
     </html>
@@ -143,5 +160,6 @@ unset(
     $_SESSION['chessBoard_div'],
     $_SESSION['task5'],
     $_SESSION['task6'],
+    $_SESSION['task8'],
 );
 ?>

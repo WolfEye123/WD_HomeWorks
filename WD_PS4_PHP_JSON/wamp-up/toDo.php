@@ -163,21 +163,42 @@ function task6()
 {
     $result = [];
     for ($i = 0; $i < 100; $i++) {
-        $result[$i] = rand(1,10);
+        $result[$i] = rand(1, 10);
     }
     $result = array_unique($result);
     arsort($result);
     $i = 0;
     $result1 = [];
     foreach ($result as $number) {
-        if ($number != null){
+        if ($number != null) {
             $result1[$i++] = $number * 2;
         }
     }
     arsort($result1);
-    foreach($result1 as $number){
+    foreach ($result1 as $number) {
         $result .= " '$number'";
     }
     $_SESSION['task6'] = $result;
+    header("Location: index.php");
+}
+
+function task8()
+{
+    $text = $_POST['textarea'];
+    $regExp = '/[\/\(\)\-\§\#\!\$\*\%\+\&\:\;\<\=\>\?\@\_\{\|\}\~\№\«\»\€]/i';
+    $_SESSION['task8'] = [];
+    $_SESSION['task8'][0] = count(explode("\n", $text));
+    echo $_SESSION['task8'][0];
+    echo '<br>';
+    $_SESSION['task8'][1] = count(explode(" ", $text));
+    echo $_SESSION['task8'][1];
+    echo '<br>';
+    preg_match_all($regExp, $text, $matches, PREG_OFFSET_CAPTURE);
+    $_SESSION['task8'][2] = count($matches[0]);
+    echo $_SESSION['task8'][2];
+    echo '<br>';
+    $_SESSION['task8'][3] = strlen($text) - $_SESSION['task8'][2] - $_SESSION['task8'][0] - $_SESSION['task8'][1];
+    echo $_SESSION['task8'][3];
+    echo '<br>';
     header("Location: index.php");
 }
