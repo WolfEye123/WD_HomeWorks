@@ -122,7 +122,7 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
             <div class="ex">Warm up task № 7</div>
             <div class="exText">
                 <label>
-                    The page should have a counter for counting page visits through pkhp sessions.
+                    The page should have a counter for counting page visits through php sessions.
                 </label>
             </div>
             <div class="answerEx">
