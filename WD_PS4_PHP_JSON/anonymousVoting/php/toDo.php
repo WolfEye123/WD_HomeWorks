@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST" && function_exists($_POST["function"])) {
     $_POST["function"]();
 }
@@ -7,15 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && function_exists($_POST["function"])
 function action()
 {
     $houses = [
-        "Arryn",
-        "Baratheon",
-        "Greyjoy",
-        "Lannister",
-        "Martell",
-        "Stark",
-        "Targaryen",
-        "Tully",
-        "Tyrell"
+        "Arryn_of_the_Eyrie",
+        "Baratheon_of_Storms_End",
+        "Greyjoy_of_Pyke",
+        "Lannister_of_Casterly_Rock",
+        "Martell_of_Dorn",
+        "Stark_of_Winterfell",
+        "Targaryen_of_Kings_Landing",
+        "Tully_of_WaterLand",
+        "Tyrell_of_Highgarden"
     ];
 
     $filename = "../json/votingValues.json";
@@ -25,13 +26,10 @@ function action()
     for ($i = 0; $i < 9; $i++) {
         if (isset($_POST[$houses[$i]]) && $_POST[$houses[$i]] == $houses[$i]) {
             $data[$houses[$i]]++;
+            $_SESSION['image'] = "../images/housesToSlider/" . $houses[$i] . ".png";
             break;
         }
     }
-
-    echo '<pre>';
-    print_r($data);
-    echo '</pre>';
     file_put_contents($filename, json_encode($data));
     header("Location: chart.php");
 }

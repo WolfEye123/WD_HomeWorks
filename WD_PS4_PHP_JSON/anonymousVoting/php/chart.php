@@ -11,9 +11,14 @@ session_start();
 </head>
 <body>
 <div class="mainWrap">
-    <section id="chartLBlock" class="chart lBlock"><?= isset($_SESSION['visitors']) ? $_SESSION['visitors'] : 0 ?></section>
+    <section class="lBlock">
+        <div class="image"
+             style="background-image: url(<?= isset($_SESSION['image']) ? $_SESSION['image'] : "../images/maxresdefault.jpg" ?>)">
+        </div>
+    </section>
     <section class="rBlock">
         <section class="voting">
+            <div class="visitors">Visitors: <?= isset($_SESSION['visitors']) ? $_SESSION['visitors'] : 0 ?></div>
             <div class="rBlock_got"><a href="index.php">GAME OF THRONES</a></div>
             <div class="rBlock_label">
                 <label>Anonymous petition for<br> the house of Westeros<br>

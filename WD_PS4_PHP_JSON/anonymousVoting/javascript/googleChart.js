@@ -1,42 +1,32 @@
 let myData;
-let voteCounter = 0;
-
-function getFile(fileName) {
+function getFile (fileName) {
     let request = new XMLHttpRequest();
     request.open('GET', fileName);
-    request.onloadend = function () {
+    request.onloadend = function() {
         parse(request.responseText);
     };
     request.send();
 }
-
 getFile('../json/votingValues.json'); //путь к файлу
 function parse(obj) {
     myData = JSON.parse(obj);
-
-    for (let i = 0; i < 10; i++) {
-        voteCounter += 0;
-    }
-    const div = $('#counter');
-    div.innerHTML = voteCounter;
+    console.log(myData);
 }
-
 
 google.charts.load("current", {packages: ["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
-
 function drawChart() {
     let data = google.visualization.arrayToDataTable([
         ['Task', 'Houses'],
-        ['Arryn', myData.Arryn],
-        ['Baratheon', myData.Baratheon],
-        ['Greyjoy', myData.Greyjoy],
-        ['Lannister', myData.Lannister],
-        ['Martell', myData.Martell],
-        ['Stark', myData.Stark],
-        ['Targaryen', myData.Targaryen],
-        ['Tully', myData.Tully],
-        ['Tyrell', myData.Tyrell]
+        ['Arryn', myData.Arryn_of_the_Eyrie],
+        ['Baratheon', myData.Baratheon_of_Storms_End],
+        ['Greyjoy', myData.Greyjoy_of_Pyke],
+        ['Lannister', myData.Lannister_of_Casterly_Rock],
+        ['Martell', myData.Martell_of_Dorn],
+        ['Stark', myData.Stark_of_Winterfell],
+        ['Targaryen', myData.Targaryen_of_Kings_Landing],
+        ['Tully', myData.Tully_of_WaterLand],
+        ['Tyrell', myData.Tyrell_of_Highgarden]
     ]);
 
     let options = {

@@ -41,30 +41,30 @@ body {
     font-size: 2rem;
 }
 
-.rBlock_label{
+.rBlock_label {
     font-family: "GameOfThrones";
     margin: 20px 10%;
     text-align: center;
     font-size: 1rem;
 }
 
-form{
+form {
     margin: 30px 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.rBlock_cb{
+.rBlock_cb {
     font-size: 1.5rem;
     padding: 5px 0;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     display: none;
 }
 
-.checkboxLabel::before{
+.checkboxLabel::before {
     content: '';
     display: inline-block;
     width: 17px;
@@ -75,17 +75,17 @@ input[type="checkbox"]{
     margin-right: 10px;
 }
 
-input[type="checkbox"]:checked + .checkboxLabel::before{
+input[type="checkbox"]:checked + .checkboxLabel::before {
     background-image: url("../images/checked.png");
     background-repeat: no-repeat;
 }
 
-.rBlock_cb img{
+.rBlock_cb img {
     width: 20px;
     height: 25px;
 }
 
-.piechart{
+.piechart {
     /*margin: 10% 10%;*/
     width: 100%;
     height: 65%;
@@ -94,15 +94,29 @@ input[type="checkbox"]:checked + .checkboxLabel::before{
     align-items: center;
 }
 
-.voting{
+.voting {
     height: 100%;
 }
 
-a{
+a {
     text-decoration: none;
     color: #c0994f;
 }
 
-text{
+text {
     fill: #c0994f;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.visitors {
+    color: #c0994f;
+    font-size: 1rem;
+    float: right;
 }
