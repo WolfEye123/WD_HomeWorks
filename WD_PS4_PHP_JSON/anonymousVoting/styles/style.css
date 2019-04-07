@@ -27,6 +27,7 @@ body {
 
 .rBlock {
     width: 50%;
+    height: 100%;
     background-image: url("../images/darknoise.png");
     background-size: contain;
     color: #d3bb89;
@@ -82,4 +83,26 @@ input[type="checkbox"]:checked + .checkboxLabel::before{
 .rBlock_cb img{
     width: 20px;
     height: 25px;
+}
+
+.piechart{
+    /*margin: 10% 10%;*/
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.voting{
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: #c0994f;
+}
+
+text{
+    fill: #c0994f;
 }

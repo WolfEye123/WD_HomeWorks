@@ -3,6 +3,6 @@ $(document).ready(() => {
     const checkboxLabel = $('.checkboxLabel');
     checkboxLabel.click(function () {
         let name = $(this).text();
-        $('#lBlock').css('background-image', `url(../images/housesToSlider/${name}.png)`);
+        $('.chart').css('background-image', `url(../images/housesToSlider/${name}.png)`);
     })
 });

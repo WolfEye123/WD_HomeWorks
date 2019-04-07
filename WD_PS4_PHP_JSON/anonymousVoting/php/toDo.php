@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && function_exists($_POST["function"])) {
     $_POST["function"]();
 }
@@ -19,16 +18,20 @@ function action()
         "Tyrell"
     ];
 
-    $checked = "";
+    $filename = "../json/votingValues.json";
+    $buffer = file_get_contents($filename);
+    $data = json_decode($buffer, true);
 
     for ($i = 0; $i < 9; $i++) {
         if (isset($_POST[$houses[$i]]) && $_POST[$houses[$i]] == $houses[$i]) {
-            $checked = $_POST[$houses[$i]];
+            $data[$houses[$i]]++;
+            break;
         }
     }
 
-    echo $checked;
-
-//    header("Location: index.php");
-
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    file_put_contents($filename, json_encode($data));
+    header("Location: chart.php");
 }
