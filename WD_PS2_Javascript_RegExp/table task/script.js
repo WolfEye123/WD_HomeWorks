@@ -49,7 +49,6 @@ let sortFlag = true;
 // initial NAMES output
 array.forEach(function (item) {
     createTable(item);
-    sum = sum + (item.amount * item.price);
     total.innerHTML = sum + "$";
 });
 
@@ -120,7 +119,7 @@ function sortByName(categoryFlag) {
  * @param categoryFlag
  */
 function sortByCategory(categoryFlag) {
-    if (sortFlag === true) {
+    if (sortFlag) {
         array.sort(function(a,b){
             if (a.category > b.category){
                 return 1;
@@ -148,9 +147,18 @@ function filterOut() {
     let tbody = document.getElementById("tbody");
     if (input.value === "") {
         filter(tbody);
-    } else if (input.value !== "") {
+    } else {
         filter(tbody);
     }
+}
+
+function extracted() {
+    array.forEach(function (item) {
+        if (item.name.toLowerCase().indexOf(input.value) !== -1
+            && item.category.indexOf(select.value) !== -1) {
+            createTable(item);
+        }
+    });
 }
 
 /**
@@ -168,28 +176,13 @@ function filter(tbody) {
         });
     }
     if (select.value === "supplies") {
-        array.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1
-                && item.category.indexOf(select.value) !== -1) {
-                createTable(item);
-            }
-        });
+        extracted();
     }
     if (select.value === "furniture") {
-        array.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1
-                && item.category.indexOf(select.value) !== -1) {
-                createTable(item);
-            }
-        });
+        extracted();
     }
     if (select.value === "other") {
-        array.forEach(function (item) {
-            if (item.name.toLowerCase().indexOf(input.value) !== -1
-                && item.category.indexOf(select.value) !== -1) {
-                createTable(item);
-            }
-        });
+        extracted();
     }
     total.innerHTML = sum + "$";
 }

@@ -3,11 +3,14 @@
  * between the user entered (for example, from -100 to 100), adding only numbers ending in 2.3 and 7
  */
 function calculateNumbers() {
-    const fNum = +document.getElementById("fNum").value;
-    const sNum = +document.getElementById("sNum").value;
+    let fNum = document.getElementById("fNum").value;
+    let sNum = document.getElementById("sNum").value;
     const answer = document.getElementsByClassName("answerEx1")[0];
+    const regExp = new RegExp("[0-9]+");
     let sum = 0, counter = 0;
-    if (fNum >= -100 && fNum <= 100 && sNum >= -100 && sNum <= 100) {
+    if (fNum >= -100 && fNum <= 100 && sNum >= -100 && sNum <= 100  && fNum.match(regExp) && sNum.match(regExp)) {
+        fNum = Number.parseInt(fNum);
+        sNum = Number.parseInt(sNum);
         counter = fNum;
         while (counter <= sNum) {
             if (counter % 10 === 2 || counter % 10 === 3 || counter % 10 === 7) {
@@ -15,7 +18,7 @@ function calculateNumbers() {
             }
             counter++;
         }
-        answer.innerHTML = "Answer is:  " + sum.toString();
+        answer.innerHTML = "Answer is:  " + sum;
     } else {
         answer.innerHTML = "Incorrect number. Please try again.";
     }
@@ -25,12 +28,13 @@ function calculateNumbers() {
  * This method calculates the time from the number of seconds entered by the user.
  */
 function calculateFromSeconds() {
-    let sNum = +document.getElementById("timeInput1").value;
+    let sNum = document.getElementById("timeInput1").value;
     const answer = document.getElementsByClassName("answerEx2")[0];
-    if (sNum < 0) {
+    if (sNum < 0 && !sNum.match(/[0-9]+/)) {
         answer.innerHTML = "Incorrect number. Please try again.";
         return;
     }
+    sNum = Number.parseInt(sNum);
     let mNum = Math.floor((sNum - (sNum % 60)) / 60 % 60);
     let hNum = Math.floor(sNum / 60 / 60);
     sNum = sNum % 60;
@@ -113,8 +117,7 @@ function drawChessBoard() {
 }
 
 /**
- * this method processes the regular expressions entered by the user
- * and the text then highlights the matches in the text.
+ * sorts out links and ip from the text and gives the user a list
  * @type {HTMLElement}
  */
 const link = document.getElementById("link");
@@ -138,21 +141,10 @@ link.addEventListener('blur', (e) => {
     links.sort();
     let br;
     const answer = document.getElementsByClassName("answerEx5")[0];
-    let regExp = [/https\:\/\/\w+\.\w+\.\w+/, /https\:\/\/\w+\.\w+/, /http\:\/\/\w+\.\w+\.\w+/, /http\:\/\/\w+\.\w+/,
-        /\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3}/];
+    let regExp = [/https?\:\/\/\w+\.\w+\.\w+/, /https?\:\/\/\w+\.\w+/, /\d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3}/];
     links = links.map(function (link) {
         br = document.createElement('br');
         if (link.match(regExp[0]) || link.match(regExp[1])) {
-            let a = document.createElement('a');
-            let linkText = document.createTextNode(link.substring(8));
-            a.appendChild(linkText);
-            a.target = "_blank";
-            a.title = link.substring(8);
-            a.href = link;
-            answer.appendChild(a);
-            answer.appendChild(br);
-        }
-        if (link.match(regExp[2]) || link.match(regExp[3])) {
             let a = document.createElement('a');
             let linkText = document.createTextNode(link.substring(7));
             a.appendChild(linkText);
@@ -162,7 +154,7 @@ link.addEventListener('blur', (e) => {
             answer.appendChild(a);
             answer.appendChild(br);
         }
-        if (link.match(regExp[4])) {
+        if (link.match(regExp[2])) {
             let a = document.createElement('a');
             let linkText = document.createTextNode(link);
             a.appendChild(linkText);
@@ -177,7 +169,8 @@ link.addEventListener('blur', (e) => {
 });
 
 /**
- *
+ * this method processes the regular expressions entered by the user
+ * and the text then highlights the matches in the text.
  * @type {HTMLElement}
  */
 const text = document.getElementById("regExpText");
@@ -187,7 +180,8 @@ text.addEventListener('focus', (e) => {
 });
 
 /**
- *
+ * this method processes the regular expressions entered by the user
+ * and the text then highlights the matches in the text.
  */
 text.addEventListener('blur', (e) => {
     let regExp = document.getElementById("regExp").value;
@@ -203,7 +197,6 @@ text.addEventListener('blur', (e) => {
 
     if (regExp.length === 0) {
         answer.innerHTML = "No regex";
-        return;
     } else {
         let regExpText;
         while (text.length > 0) {
@@ -218,7 +211,6 @@ text.addEventListener('blur', (e) => {
                 temp = text.substring(0, regExpText.length);
                 text = text.substring(regExpText.length);
                 answer.appendChild(mark);
-                continue;
             } else {
                 regExpText = text.match(regExp)[0];
                 temp = text.substring(0, foundPos);
