@@ -4,7 +4,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && function_exists($_POST["function"])
     $_POST["function"]();
 }
 
-
+/**
+ * counts the votes and writes them to a file
+ */
 function action()
 {
     $houses = [
