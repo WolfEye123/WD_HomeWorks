@@ -109,7 +109,7 @@ function task3_countFileSize($size)
     return $size;
 }
 
-function drawChessBoard()
+function task4()
 {
     $_SESSION['task4'] = "";
     $size = $_POST['chessboard'];
@@ -190,14 +190,14 @@ function task8()
     $_SESSION['task8'][0] = count(explode("\n", $text));
     echo $_SESSION['task8'][0];
     echo '<br>';
-    $_SESSION['task8'][1] = count(explode(" ", $text));
+    $_SESSION['task8'][1] = count(explode(" ", $text)) - 1;
     echo $_SESSION['task8'][1];
     echo '<br>';
     preg_match_all($regExp, $text, $matches, PREG_OFFSET_CAPTURE);
     $_SESSION['task8'][2] = count($matches[0]);
     echo $_SESSION['task8'][2];
     echo '<br>';
-    $_SESSION['task8'][3] = strlen($text) - $_SESSION['task8'][2] - $_SESSION['task8'][0] - $_SESSION['task8'][1];
+    $_SESSION['task8'][3] = strlen($text) - $_SESSION['task8'][2] - $_SESSION['task8'][1];
     echo $_SESSION['task8'][3];
     echo '<br>';
     header("Location: index.php");

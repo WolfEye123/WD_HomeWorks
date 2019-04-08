@@ -76,7 +76,7 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                 <label>ChessBoard<br>Max size(25x25)</label>
             </div>
             <form action="toDo.php" method="post" class="form">
-                <input type="hidden" name="function" value="drawChessBoard">
+                <input type="hidden" name="function" value="task4">
                 <input type="text" name="chessboard" class="input" placeholder="Enter chessboard size" required>
                 <input type="submit" class="submit" value="Draw ChessBoard">
                 <div id="answerEx4_1" class="answerEx4">
@@ -142,7 +142,12 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                 </label>
                 <input type="submit" class="submit" value="Calculate">
                 <div class="answerEx">
-                    <?= isset($_SESSION['task8']) ? "Answer is: " . $_SESSION['task8'] : "Answer is:" ?>
+                    <?php if (isset($_SESSION['task8'])){
+                        echo "Number of lines: " . $_SESSION['task8'][0] . '<br>';
+                        echo "Number of spaces: " . $_SESSION['task8'][1] . '<br>';
+                        echo "Number of special characters: " . $_SESSION['task8'][2] . '<br>';
+                        echo "Number of characters: " . $_SESSION['task8'][3] . '<br>';
+                    } ?>
                 </div>
             </form>
         </section>
