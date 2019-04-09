@@ -1,6 +1,8 @@
 $(document).ready(() => {
+    $('#scrollUp').hide();
+
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
+        if ($(this).scrollTop() > 200) {
             $('#scrollUp').fadeIn();
         } else {
             $('#scrollUp').fadeOut();
@@ -8,11 +10,10 @@ $(document).ready(() => {
     });
 
     $("a").click(function () {
-        $("body,html").animate({scrollTop: $(this.hash).offset().top - $(this).height()}, 800);
-        return false;
+        $("body,html").animate({scrollTop: $(this.hash).offset().top - $(window).height() / 2}, 200);
     });
 
     $('#scrollUp').click(function () {
-        $('body,html').animate({scrollTop: 0}, 800);
+        $('body,html').animate({scrollTop: 0}, 200);
     });
 });
