@@ -29,11 +29,11 @@ li {
 }
 
 .fOption:hover{
-    background-color: white;
+    background-color: white!important;
 }
 
 li:hover{
-    background-color: aliceblue;
+    background-color: aliceblue!important;
 }
 
 li label{
