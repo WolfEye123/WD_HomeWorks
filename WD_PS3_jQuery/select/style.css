@@ -4,14 +4,9 @@ body {
     margin: 0;
 }
 
-.wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 .newSelector {
     margin-top: 10%;
+    margin-left: 20%;
     background-color: white;
     font-size: 1.3rem;
     font-family: Helvetica;
@@ -31,6 +26,14 @@ body {
 
 li {
     display: none;
+}
+
+.fOption:hover{
+    background-color: white;
+}
+
+li:hover{
+    background-color: aliceblue;
 }
 
 li label{
