@@ -6,22 +6,28 @@ const ATM = {
     // all available users
     users: [
         {id: "0000", pin: "000", debet: 0, type: "admin"}, // EXTENDED
-        {id: "0025", pin: "123", debet: 675, type: "user"}
+        {id: "0025", pin: "123", debet: 675, type: "user1"},
+        {id: "0026", pin: "124", debet: 675, type: "user2"},
+        {id: "0027", pin: "125", debet: 675, type: "user3"},
+        {id: "0028", pin: "126", debet: 675, type: "user4"},
+        {id: "0029", pin: "127", debet: 675, type: "user5"},
+        {id: "0030", pin: "128", debet: 675, type: "user6"},
+        {id: "0031", pin: "129", debet: 675, type: "user7"}
     ],
     // all logs
     ATMLogs: [],
     // authorization
     auth(id, pin) {
         if (!this.isAuth) {
-            this.users.forEach((item, i, arr) => {
-                if (item.id === id && item.pin === pin) {
-                    console.log('Hello ' + this.users[i].type);
-                    console.log('Come in');
-                    this.isAuth = true;
-                    this.currentUser = i;
-                    this.ATMLogs.push('User ' + id + ' log in');
-                }
-            });
+            const userIndex = this.users.findIndex(item => item.id === id);
+            const userData = this.users[userIndex];
+            if (userIndex >= 0 && userData.pin === pin) {
+                console.log('Hello ' + userData.type);
+                this.isAuth = true;
+                this.currentUser = id;
+                this.ATMLogs.push('User ' + id + ' log in');
+            }
+
             if (!this.isAuth) {
                 console.log('Wrong Login or Password. Try again.');
                 this.ATMLogs.push('User ' + id + ' try to log in. Fail log in.');
@@ -33,8 +39,13 @@ const ATM = {
     },
     // check current debet
     check() {
+        const userIndex = this.users.findIndex(item => item.id === this.currentUser);
+        const userData = this.users[userIndex];
+        if (userData.type === 'admin') {
+            console.log('Sorry you can do this');
+            return;
+        }
         if (this.isAuth) {
-            const userData = this.users[this.currentUser];
             console.log('Your debit: $ ' + userData.debet);
             this.ATMLogs.push('User ' + userData.id + ' has withdrawn $ ' + userData.debet);
         } else {
@@ -44,11 +55,16 @@ const ATM = {
     },
     // get cash - available for user only
     getCash(amount) {
-        const userData = this.users[this.currentUser];
+        const userIndex = this.users.findIndex(item => item.id === this.currentUser);
+        const userData = this.users[userIndex];
+        if (userData.type === 'admin') {
+            console.log('Sorry you can do this');
+            return;
+        }
         const ATMCash = this.cash;
         if (this.isAuth && userData.debet < ATMCash && userData.debet >= amount) {
             console.log(userData.type + ' get your cash $ ' + amount);
-            this.users[this.currentUser].debet -= amount;
+            this.users[userIndex].debet -= amount;
             this.cash -= amount;
             this.ATMLogs.push('User ' + userData.id + ' get cash');
         } else if (this.isAuth && userData.debet > ATMCash) {
@@ -64,11 +80,17 @@ const ATM = {
     },
     // load cash - available for user only
     loadCash(amount) {
+        const userIndex = this.users.findIndex(item => item.id === this.currentUser);
+        const userData = this.users[userIndex];
+        if (userData.type === 'admin') {
+            console.log('Sorry you can do this');
+            return;
+        }
         if (this.isAuth) {
             console.log('you set $ ' + amount + ' to your account');
-            this.users[this.currentUser].debet += amount;
+            this.users[userIndex].debet += amount;
             this.cash += amount;
-            this.ATMLogs.push('User ' + this.users[this.currentUser].id + ' add cash to his account');
+            this.ATMLogs.push('User ' + this.users[userIndex].id + ' add cash to his account');
         } else {
             console.log('You must sing in');
             this.ATMLogs.push('Someone want to load cash without login');
@@ -76,11 +98,11 @@ const ATM = {
     },
     // load cash to ATM - available for admin only - EXTENDED
     loadAtmCash(amount) {
-        const admin = this.users[0].type;
-        const user = this.users[this.currentUser].type;
-        if (this.isAuth && admin === user) {
+        const userIndex = this.users.findIndex(item => item.id === this.currentUser);
+        const userData = this.users[userIndex];
+        if (this.isAuth && userData.type === 'admin') {
             this.cash += amount;
-            console.log(this.cash);
+            console.log('ATM cash $ ' + this.cash);
             this.ATMLogs.push('Admin add cash to ATM');
         } else {
             console.log('Sorry you cant do this.');
@@ -89,10 +111,12 @@ const ATM = {
     },
     // get cash actions logs - available for admin only - EXTENDED
     getLogs() {
-        const admin = this.users[0].type;
-        const user = this.users[this.currentUser].type;
-        if (this.isAuth && admin === user) {
-            console.log(this.ATMLogs);
+        const userIndex = this.users.findIndex(item => item.id === this.currentUser);
+        const userData = this.users[userIndex];
+        if (this.isAuth && userData.type === 'admin') {
+            this.ATMLogs.forEach(function(element) {
+                console.log(element);
+            });
             this.ATMLogs.push('Admin read logs');
         } else {
             console.log('Sorry you cant do this.');
@@ -102,9 +126,10 @@ const ATM = {
     // log out
     logout() {
         if (this.isAuth) {
+            const userIndex = this.users.findIndex(item => item.id === this.currentUser);
             this.isAuth = false;
             console.log('Goo bye.');
-            this.ATMLogs.push('User ' + this.users[this.currentUser].id + ' logout');
+            this.ATMLogs.push('User ' + this.users[userIndex].id + ' logout');
         }
     }
 };
