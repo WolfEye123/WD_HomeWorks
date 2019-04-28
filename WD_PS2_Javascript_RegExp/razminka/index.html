@@ -17,7 +17,7 @@
     <input type="text" id="fNum" class="input" placeholder="Enter first number">
     <input type="text" id="sNum" class="input" placeholder="Enter second number">
     <input type="submit" class="submit" value="Calculate" onclick="calculateNumbers()">
-    <div class="answerEx1">Answer is:</div>
+    <div id="answerEx1" class="answerEx1">Answer is:</div>
     <div class="ex">Warm up task № 2</div>
 
     <div class="exText">
@@ -25,14 +25,14 @@
     </div>
     <input type="text" id="timeInput1" class="input" placeholder="Enter the number of seconds">
     <input type="submit" class="submit" value="Calculate" onclick="calculateFromSeconds()">
-    <div class="answerEx2">Answer is:</div>
+    <div id="answerEx2"  class="answerEx2">Answer is:</div>
     <div class="exText">
         <label for="timeInput2">The user enters the time in the format hh: mm: ss (01:23:20),<br>
             Output in the format: 5000 sec</label>
     </div>
     <input type="text" id="timeInput2" class="input" placeholder="Enter the number of seconds">
     <input type="submit" class="submit" value="Calculate" onclick="calculateToSeconds()">
-    <div class="answerEx2_1">Answer is:</div>
+    <div id="answerEx2_1"  class="answerEx2_1">Answer is:</div>
     <div class="ex">Warm up task № 3</div>
     <div class="exText">
         <label for="timeInput3">
@@ -43,7 +43,7 @@
     <input type="datetime-local" id="timeInput3" class="input" placeholder="Enter first number">
     <input type="datetime-local" id="timeInput4" class="input" placeholder="Enter second number">
     <input type="submit" class="submit" value="Calculate" onclick="calculateTimeBetween()">
-    <div class="answerEx3">Answer is:</div>
+    <div id="answerEx3" class="answerEx3">Answer is:</div>
     <div class="ex">Warm up task № 4</div>
     <div class="exText">
         <label for="chess">
@@ -54,8 +54,8 @@
     </div>
     <input type="text" id="chess" class="input" placeholder="Enter chessboard size">
     <input type="submit" class="submit" value="Draw ChessBoard" onclick="drawChessBoard()">
-    <div class="answerEx4_1"></div>
-    <div class="answerEx4"></div>
+    <div id="answerEx4_1" class="answerEx4_1"></div>
+    <div id="answerEx4" class="answerEx4"></div>
     <div class="ex">Warm up task № 5</div>
     <div class="exText">
         <label for="link">
@@ -63,19 +63,22 @@
         </label>
     </div>
     <textarea wrap="hard" id="link" class="link" rows="5" placeholder="Enter links and ip"></textarea>
-    <div class="answerEx5"></div>
+    <div id="answerEx5" class="answerEx5"></div>
     <div class="ex">Warm up task № 6</div>
     <div class="exText">
         <label for="regExpText">
             Enter text into textarea, input to regular text or text. <br>
             After pressing the button - display the same text, but in it everything <br>
-            that fits under the regular schedule is highlighted in yellow (highlighted).
+            that fits under the regular schedule is highlighted in yellow (highlighted).<br>
+            RegExp must be like:  \d{1,3}\.\d{1,3}\.\d{1,3}.\d{1,3}<br>
+            This regExp for ip like: 192.168.1.1
         </label>
     </div>
     <input type="text" id="regExp" class="input" placeholder="Enter regex">
     <textarea wrap="hard" id="regExpText" class="regExpText" rows="5" placeholder="Enter text"></textarea>
-    <div class="answerEx6"></div>
+    <input type="submit" class="submit" value="Check RegExp" onclick="regExp()">
+    <div id="answerEx6" class="answerEx6"></div>
 </div>
-<script src="razminka.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
