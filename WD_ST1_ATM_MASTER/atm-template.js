@@ -39,6 +39,11 @@ const ATM = {
     },
     // check current debet
     check() {
+        if(!this.isAuth) {
+            console.log('You must sing in');
+            this.ATMLogs.push('Someone want to check without login');
+            return;
+        }
         const userIndex = this.users.findIndex(item => item.id === this.currentUser);
         const userData = this.users[userIndex];
         if (userData.type === 'admin') {
@@ -48,13 +53,15 @@ const ATM = {
         if (this.isAuth) {
             console.log('Your debit: $ ' + userData.debet);
             this.ATMLogs.push('User ' + userData.id + ' has withdrawn $ ' + userData.debet);
-        } else {
-            console.log('You must sing in');
-            this.ATMLogs.push('Someone want to check without login');
         }
     },
     // get cash - available for user only
     getCash(amount) {
+        if(!this.isAuth) {
+            console.log('You must sing in');
+            this.ATMLogs.push('Someone try get cash without login');
+            return;
+        }
         const userIndex = this.users.findIndex(item => item.id === this.currentUser);
         const userData = this.users[userIndex];
         if (userData.type === 'admin') {
@@ -73,13 +80,15 @@ const ATM = {
         } else if (this.isAuth && userData.debet < amount) {
             console.log('Sorry, but you do not have enough money in your account');
             this.ATMLogs.push('User ' + userData.id + ' try get cash. But you do not have enough money his your account');
-        } else {
-            console.log('You must sing in');
-            this.ATMLogs.push('User ' + userData.id + ' try get cash without login');
         }
     },
     // load cash - available for user only
     loadCash(amount) {
+        if(!this.isAuth) {
+            console.log('You must sing in');
+            this.ATMLogs.push('Someone try load cash without login');
+            return;
+        }
         const userIndex = this.users.findIndex(item => item.id === this.currentUser);
         const userData = this.users[userIndex];
         if (userData.type === 'admin') {
@@ -98,6 +107,11 @@ const ATM = {
     },
     // load cash to ATM - available for admin only - EXTENDED
     loadAtmCash(amount) {
+        if(!this.isAuth) {
+            console.log('You must sing in');
+            this.ATMLogs.push('Someone try load cash without login');
+            return;
+        }
         const userIndex = this.users.findIndex(item => item.id === this.currentUser);
         const userData = this.users[userIndex];
         if (this.isAuth && userData.type === 'admin') {
@@ -111,6 +125,11 @@ const ATM = {
     },
     // get cash actions logs - available for admin only - EXTENDED
     getLogs() {
+        if(!this.isAuth) {
+            console.log('You must sing in');
+            this.ATMLogs.push('Someone try get logs without login');
+            return;
+        }
         const userIndex = this.users.findIndex(item => item.id === this.currentUser);
         const userData = this.users[userIndex];
         if (this.isAuth && userData.type === 'admin') {
