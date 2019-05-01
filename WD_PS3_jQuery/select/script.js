@@ -17,7 +17,13 @@ $(document).ready(() => {
 
     // create list objects
     for (let name of NAMES) {
-        select.append($(li).addClass('hide').html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label>`));
+        select.append($(li).addClass('hide').html(
+            `
+            <img 
+            src="images/${name}.png" 
+            alt="${name}">
+            <label>${name}</label>
+        `));
     }
 
     // list selectors
@@ -25,7 +31,7 @@ $(document).ready(() => {
     const liLast = $('li:last');
     const liHide = $('li.hide');
 
-    liLast.css('border','none');
+    liLast.css('border', 'none');
 
     // EventListeners
     liFOption.click(function () {
@@ -48,8 +54,14 @@ $(document).ready(() => {
         $('li').toggleClass('option');
         let name = $(this).text();
         if (flag) {
-            liFOption.html(`<img src="images/${name}.png" alt="${name}"><label>${name}</label><span>▼</span>`);
-            liHide.css('background-color','white');
+            liFOption.html(`
+                <img 
+                src="images/${name}.png" 
+                alt="${name}">
+                <label>${name}</label>
+                <span>▼</span>
+            `);
+            liHide.css('background-color', 'white');
             $(this).css('background-color', 'aliceblue');
             flag = !flag;
         }
