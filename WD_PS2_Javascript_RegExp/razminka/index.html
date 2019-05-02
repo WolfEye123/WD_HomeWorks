@@ -14,8 +14,8 @@
             (for example, from -100 to 100), adding only numbers that end with 2,3, and 7
         </label>
     </div>
-    <input type="text" id="fNum" class="input" placeholder="Enter first number">
-    <input type="text" id="sNum" class="input" placeholder="Enter second number">
+    <input type="number" id="fNum" class="input" placeholder="Enter first number">
+    <input type="number" id="sNum" class="input" placeholder="Enter second number">
     <input type="submit" class="submit" value="Calculate" onclick="calculateNumbers()">
     <div id="answerEx1" class="answerEx1">Answer is:</div>
     <div class="ex">Warm up task № 2</div>
@@ -23,7 +23,7 @@
     <div class="exText">
         <label for="timeInput1">The user enters the time in seconds. Output in the format: hh: mm: ss (01:05:20)</label>
     </div>
-    <input type="text" id="timeInput1" class="input" placeholder="Enter the number of seconds">
+    <input type="number" id="timeInput1" class="input" placeholder="Enter the number of seconds">
     <input type="submit" class="submit" value="Calculate" onclick="calculateFromSeconds()">
     <div id="answerEx2"  class="answerEx2">Answer is:</div>
     <div class="exText">
@@ -76,7 +76,7 @@
     </div>
     <input type="text" id="regExp" class="input" placeholder="Enter regex">
     <textarea wrap="hard" id="regExpText" class="regExpText" rows="5" placeholder="Enter text"></textarea>
-    <input type="submit" class="submit" value="Check RegExp" onclick="regExp()">
+    <input type="submit" class="submit" value="Check RegExp" onclick="regex()">
     <div id="answerEx6" class="answerEx6"></div>
 </div>
 <script src="script.js"></script>

@@ -87,43 +87,29 @@ sortName.onclick = function () {
  */
 function sort(categoryFlag) {
     if (sortFlag === true) {
-        GOODS.sort(function (a, b) {
-            for (let key in a) {
-                if (key === categoryFlag) {
-                    if (a[categoryFlag] > b[categoryFlag]) {
-                        return 1;
-                    }
-                }
-            }
-            return -1;
-        });
-        filterOut();
-        sortFlag = !sortFlag;
+        const propComparator = (prop) =>
+            (a, b) => a[prop] === b[prop] ? 0 : a[prop] > b[prop] ? 1 : -1;
+
+        const compareCategory = propComparator(categoryFlag);
+
+        GOODS.sort(compareCategory);
     } else {
-        GOODS.sort(function (a, b) {
-            for (let key in a) {
-                if (key === categoryFlag) {
-                    if (a[categoryFlag] < b[categoryFlag]) {
-                        return 1;
-                    }
-                }
-            }
-            return -1;
-        });
-        filterOut();
-        sortFlag = !sortFlag;
+        const propComparator = (prop) =>
+            (a, b) => a[prop] === b[prop] ? 0 : a[prop] < b[prop] ? 1 : -1;
+
+        const compareCategory = propComparator(categoryFlag);
+
+        GOODS.sort(compareCategory);
     }
+    filterOut();
+    sortFlag = !sortFlag;
 }
 
 /**
  * input filtering method
  */
 function filterOut() {
-    if (input.value === "") {
-        filter();
-    } else {
-        filter();
-    }
+    filter();
 }
 
 /**
