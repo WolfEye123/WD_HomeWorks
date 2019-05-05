@@ -1,19 +1,20 @@
 $(document).ready(() => {
-    $('#scrollUp').hide();
+    const scroll = $('#scrollUp');
+    scroll.hide();
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
-            $('#scrollUp').fadeIn();
+            scroll.fadeIn();
         } else {
-            $('#scrollUp').fadeOut();
+            scroll.fadeOut();
         }
     });
 
-    $("a").click(function () {
+    $("a.links__style").click(function () {
         $("body,html").animate({scrollTop: $(this.hash).offset().top - $(window).height() / 2}, 200);
     });
 
-    $('#scrollUp').click(function () {
+    scroll.click(function () {
         $('body,html').animate({scrollTop: 0}, 200);
     });
 });
