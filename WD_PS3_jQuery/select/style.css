@@ -19,7 +19,6 @@ body {
 .option, .fOption {
     display: block;
     list-style-type: none;
-    border-bottom: 1px solid rgba(0, 0, 199, 0.25);
     border-radius: 10px;
     padding: 10px 40px;
 }

@@ -1,13 +1,33 @@
-const NAMES = [
-    "Jenny_Hess",
-    "Elliot_Fu",
-    "Stevie_Feliciano",
-    "Christian",
-    "Matt"
+const USERS = [
+    {
+        fullname: 'Jenny_Hess',
+        username: 'jenny',
+        photo: 'Jenny_Hess.png'
+    },
+    {
+        fullname: 'Elliot_Fu',
+        username: 'elliot',
+        photo: 'Elliot_Fu.png'
+    },
+    {
+        fullname: 'Stevie_Feliciano',
+        username: 'stevie',
+        photo: 'Stevie_Feliciano.png'
+    },
+    {
+        fullname: 'Christian',
+        username: 'christian',
+        photo: 'Christian.png'
+    },
+    {
+        fullname: 'Matt',
+        username: 'matt',
+        photo: 'Matt.png'
+    },
 ];
-
 $(document).ready(() => {
     let flag = true;
+    const filePath = 'images/';
 
     // html objects
     const li = '<li></li>';
@@ -16,22 +36,20 @@ $(document).ready(() => {
     const select = $('.select');
 
     // create list objects
-    for (let name of NAMES) {
+    USERS.map((user)=>{
         select.append($(li).addClass('hide').html(
             `
             <img 
-            src="images/${name}.png" 
-            alt="${name}">
-            <label>${name}</label>
+            src="${filePath + user.photo}" 
+            alt="${user.username}"
+            value="${user.username}">
+            <label>${user.fullname}</label>
         `));
-    }
+    });
 
     // list selectors
     const liFOption = $('li.fOption');
-    const liLast = $('li:last');
     const liHide = $('li.hide');
-
-    liLast.css('border', 'none');
 
     // EventListeners
     liFOption.click(function () {
@@ -41,22 +59,13 @@ $(document).ready(() => {
         $('li').toggleClass('option');
     });
 
-    // $(window).on('click',function (event) {
-    //     if (!select.is(event.target) && liHide.attr('class') == 'hide option'){
-    //         console.log("you clicked outside the box");
-    //         $('li').toggleClass('option');
-    //     } else {
-    //         console.log("you clicked inside the box");
-    //     }
-    // });
-
     liHide.click(function () {
         $('li').toggleClass('option');
         let name = $(this).text().trim();
         if (flag) {
             liFOption.html(`
                 <img 
-                src="images/${name}.png" 
+                src="${filePath + name}.png" 
                 alt="${name}">
                 <label>${name}</label>
                 <span>▼</span>
