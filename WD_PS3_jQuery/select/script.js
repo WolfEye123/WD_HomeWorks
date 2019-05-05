@@ -1,7 +1,7 @@
 const NAMES = [
-    "Jenny Hess",
-    "Elliot Fu",
-    "Stevie Feliciano",
+    "Jenny_Hess",
+    "Elliot_Fu",
+    "Stevie_Feliciano",
     "Christian",
     "Matt"
 ];
@@ -52,7 +52,7 @@ $(document).ready(() => {
 
     liHide.click(function () {
         $('li').toggleClass('option');
-        let name = $(this).text();
+        let name = $(this).text().trim();
         if (flag) {
             liFOption.html(`
                 <img 
