@@ -10,15 +10,14 @@ function calculateNumbers() {
     let sNum = sInput.value;
     let sum = 0;
     let counter;
-
     if (fNum > sNum) {
         let tmp = sNum;
         sNum = fNum;
         fNum = tmp;
     }
     counter = fNum;
-    let remainder = Math.abs(counter) % 10;
     while (counter <= sNum) {
+        let remainder = Math.abs(counter) % 10;
         if (remainder === 2 || remainder === 3 || remainder === 7) {
             sum += counter;
         }
@@ -82,46 +81,64 @@ function calculateTimeBetween() {
         sDate = fDate;
         fDate = tmp;
     }
+    const newDate = sDate - fDate;
+    const secondsConvert = 1000,
+        minutesConvert = 60,
+        hoursConvert = 24,
+        daysConvert = 31,
+        monthConvert = 12,
+        daysInYear = 365;
+
+    const seconds = Math.floor((newDate / secondsConvert) % minutesConvert),
+        minutes = Math.floor((newDate / (secondsConvert * minutesConvert)) % minutesConvert),
+        hours = Math.floor((newDate / (secondsConvert * minutesConvert * minutesConvert)) % hoursConvert),
+        days = Math.floor((newDate / (secondsConvert * minutesConvert * minutesConvert * hoursConvert)) % daysConvert),
+        months = Math.floor((newDate / (secondsConvert * minutesConvert * minutesConvert * hoursConvert * daysConvert)) % monthConvert),
+        years = Math.floor(newDate / (secondsConvert * minutesConvert * minutesConvert * hoursConvert * daysInYear));
+
     answer.innerText =
-        (sDate.getFullYear() - fDate.getFullYear()) + ' year (s), ' +
-        (sDate.getMonth() - fDate.getMonth()) + ' month (s), ' +
-        (sDate.getDay() - fDate.getDay()) + ' day (s), ' +
-        (sDate.getHours() - fDate.getHours()) + ' hour (s), ' +
-        (sDate.getMinutes() - fDate.getMinutes()) + ' minute (s).';
+        years + ' year (s), ' +
+        months + ' month (s), ' +
+        days + ' day (s), ' +
+        hours + ' hour (s), ' +
+        minutes + ' minute (s), ' +
+        seconds + ' second (s).';
 }
 
 /**
  * this method draws a chessboard depending on the size entered by the user
  */
 function drawChessBoard() {
-    let boardSize = document.getElementById('chess').value;
+    const boardSizeInput = document.getElementById('chess');
     const answer = document.getElementById('answerEx4_1');
     const answerErr = document.getElementById('answerEx4');
     answer.innerText = '';
-    boardSize = boardSize.split('x', 2);
+    const boardSize = boardSizeInput.value.split('x', 2);
     const x = boardSize[0];
     const y = boardSize[1];
     if (x < 0 || y < 0 || x > 25 || y > 25) {
         answerErr.innerText = 'Incorrect size. Please try again.';
         return;
     }
-    answer.style.width = x * 50 + 'px'; // size in "px"
-    answer.style.height = y * 50 + 'px'; // size in "px"
+    answer.style.width = x * 50; // size in "px"
+    answer.style.height = y * 50; // size in "px"
     let flag = true;
+    const div = document.createElement("div");
     for (let i = 0; i < y; i++) {
         const br = document.createElement("br");
         for (let j = 0; j < x; j++) {
             const block = document.createElement("div");
-            block.className = flag ? 'black' : 'white';
-            answer.appendChild(block);
+            block.className = flag ? 'block black' : 'block white';
+            div.appendChild(block);
             flag = !flag;
             if (j === x - 1 && x % 2 !== 0) {
                 flag = !flag;
             }
         }
         flag = !flag;
-        answer.append(br);
+        div.append(br);
     }
+    answer.appendChild(div);
 }
 
 /**
@@ -179,9 +196,10 @@ link.addEventListener('blur', (e) => {
  * and the text then highlights the matches in the text.
  */
 function regex() {
-    let regex = document.getElementById("regex").value;
-    let text = document.getElementById("regExpText").value;
-    regex = new RegExp(regex, "gi");
+    const regexInput = document.getElementById("regex");
+    const InputText = document.getElementById("regexText");
+    let regex = new RegExp(regexInput.value, 'gi');
+    let text = InputText.value;
 
     const answer = document.getElementById("answerEx6");
     answer.innerText = "";
