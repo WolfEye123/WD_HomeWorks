@@ -42,7 +42,7 @@ const total = document.getElementById("total");
 // sortByName sortFlag
 let sortFlag = true;
 
-// initial NAMES output
+// initial SLIDER output
 filter();
 
 /**
