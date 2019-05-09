@@ -1,16 +1,16 @@
 const USERS = [
     {
-        fullname: 'Jenny_Hess',
+        fullname: 'Jenny Hess',
         username: 'jenny',
         photo: 'Jenny_Hess.png'
     },
     {
-        fullname: 'Elliot_Fu',
+        fullname: 'Elliot Fu',
         username: 'elliot',
         photo: 'Elliot_Fu.png'
     },
     {
-        fullname: 'Stevie_Feliciano',
+        fullname: 'Stevie Feliciano',
         username: 'stevie',
         photo: 'Stevie_Feliciano.png'
     },
@@ -37,12 +37,11 @@ $(document).ready(() => {
 
     // create list objects
     USERS.map((user)=>{
-        select.append($(li).addClass('hide').html(
+        select.append($(li).addClass('hide').attr('value', `${user.username}`).html(
             `
             <img 
             src="${filePath + user.photo}" 
-            alt="${user.username}"
-            value="${user.username}">
+            alt="${user.username}">
             <label>${user.fullname}</label>
         `));
     });
@@ -61,13 +60,14 @@ $(document).ready(() => {
 
     liHide.click(function () {
         $('li').toggleClass('option');
-        let name = $(this).text().trim();
+        const userIndex = USERS.findIndex(user => user.fullname === $(this).text().trim());
+        const user = USERS[userIndex];
         if (flag) {
-            liFOption.html(`
+            liFOption.attr('value', `${user.username}`).html(`
                 <img 
-                src="${filePath + name}.png" 
-                alt="${name}">
-                <label>${name}</label>
+                src="${filePath + user.photo}" 
+                alt="${user.username}"">
+                <label>${user.fullname}</label>
                 <span>▼</span>
             `);
             liHide.css('background-color', 'white');
