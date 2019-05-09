@@ -123,7 +123,6 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
             </section>
         </section>
         <script src="../javascript/jQuery.js"></script>
-        <script src="../javascript/script.js"></script>
     </body>
     </html>
 <?php
