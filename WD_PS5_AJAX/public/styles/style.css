@@ -24,20 +24,6 @@ body {
 	background: #b9c783;
 }
 
-.chat_scope{
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	height: 98%;
-}
-
-.chat_form {
-	height: 98%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 .chat_colorLines {
 	display: flex;
 	flex-direction: row;
@@ -68,28 +54,6 @@ body {
 	background: #7bc3ab;
 }
 
-.chat_name {
-	color: #fffced;
-	font-family: "Pacifico";
-	font-size: 4rem;
-	margin-top: 70px;
-}
-
-.chat_inputs{
-	display: flex;
-	flex-direction: column;
-	margin-top: 3%;
-	width: 20%;
-}
-
-.chat_inputs label{
-	color: #635960;
-	padding: 10px 0;
-	font-family: "Montserrat";
-	font-size: 0.8rem;
-
-}
-
 input{
 	outline: none;
 	border: none;
@@ -114,14 +78,55 @@ input[type="submit"]{
 	color: #fffced;
 }
 
+.chat_name {
+	color: #fffced;
+	font-family: "Pacifico";
+	font-size: 4rem;
+	margin-top: 70px;
+}
+
+/*****************    index.php   ********************/
+
+.chat_form {
+	height: 98%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.chat_inputs{
+	display: flex;
+	flex-direction: column;
+	margin-top: 3%;
+	width: 20%;
+}
+
+.chat_inputs label{
+	color: #635960;
+	padding: 10px 0;
+	font-family: "Montserrat";
+	font-size: 0.8rem;
+
+}
+
 .chat_sendSubmit{
 	width: 100px;
 }
 
-/*.shadow{*/
+/*.submitShadow{*/
 /*	background: #fc0;*/
 /*	box-shadow: 0 10px 0 10px rgba(0,0,0,0.06);*/
 /*}*/
+
+
+/*****************    chatWindow.php   ********************/
+
+.chat_scope{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 98%;
+}
 
 .chat_window{
 	margin-top: 30px;
@@ -147,7 +152,7 @@ textarea{
 	outline: none;
 	border: none;
 	font-family: "Montserrat";
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 }
 
 
