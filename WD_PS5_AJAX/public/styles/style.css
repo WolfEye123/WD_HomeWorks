@@ -85,6 +85,17 @@ input[type="submit"]{
 	margin-top: 70px;
 }
 
+/*****************    index.php - password error  ********************/
+
+.showError{
+	display: block;
+	color: red;
+}
+
+.hideError{
+	display: none;
+}
+
 /*****************    index.php   ********************/
 
 .chat_form {
