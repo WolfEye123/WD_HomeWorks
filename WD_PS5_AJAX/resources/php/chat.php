@@ -1,46 +1,39 @@
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-	if ($_POST["post"] === "1") {
-		chatPage();
-	}
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+	return;
 }
 
-/**
- *
- */
-function chatPage()
-{
-	// variables
-	$messageDate = $_POST["messageDate"];
-	$messageTime = $_POST["messageTime"];
-	$userName = $_POST["messageFrom"];
-	$message = $_POST["message"];
-	$filePath = "../json/$userName.json";
-
-	// json object
-	$complex = array(
-		"messageDate" => $messageDate,
-		"messageTime" => $messageTime,
-		"messageFrom" => $userName,
-		"message" => $message
-	);
-
-	if ($dir = opendir("../json")) {
-		$found = false;
-		while ($file = readdir($dir)) {
-			if ($file === $userName . ".json") {
-				$found = true;
-				break;
-			}
-		}
-		if (!$found) {
-			return;
-		}
-		$buffer = file_get_contents($filePath);
-		$data = json_decode($buffer, true);
-		array_push($data["messages"], $complex);
-		print_r($complex);
-		file_put_contents($filePath, json_encode($data), JSON_PRETTY_PRINT);
-	}
+// variables
+$date = getdate();
+$messageDate = $date['year'] . '.' .
+	str_pad($date['mon'], 2, '0', STR_PAD_LEFT) . '.' .
+	str_pad($date['mday'], 2, '0', STR_PAD_LEFT);
+$messageTime =
+	str_pad($date['hours'], 2, '0', STR_PAD_LEFT) . ':' .
+	str_pad($date['minutes'], 2, '0', STR_PAD_LEFT) . ':' .
+	str_pad($date['seconds'], 2, '0', STR_PAD_LEFT);
+$userName = isset($_SESSION['user']) ? $_SESSION['user'] : 'false';
+$message = isset($_POST['message']) ? $_POST['message'] : 'false';
+if (!$userName && !$message){
+	return;
 }
+$filePath = "../json/$userName.json";
+
+// json object
+$complex = [
+	'messageDate' => $messageDate,
+	'messageTime' => $messageTime,
+	'messageFrom' => $userName,
+	'message' => $message
+];
+
+$buffer = file_get_contents($filePath);
+if (!$buffer){
+	echo "false";
+}
+$data = json_decode($buffer, true);
+$data['messages'][] = $complex;
+file_put_contents($filePath, json_encode($data), JSON_PRETTY_PRINT);
+echo json_encode($complex);
+header('Content-type: application/json');

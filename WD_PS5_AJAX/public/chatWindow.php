@@ -9,7 +9,7 @@ session_start();
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title><?= isset($_SESSION["user"]) ? $_SESSION["user"] : "Easy Chat" ?></title>
+	<title>Easy Chat</title>
 	<link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
@@ -29,6 +29,7 @@ session_start();
 		<div class="chat_colorLines_lines line3"></div>
 		<div class="chat_colorLines_lines line4"></div>
 	</section>
+    <div class="helloUser"><?= isset($_SESSION['user']) ? $_SESSION['user'] : "Easy Chat" ?></div>
 	<section class="chat_scope">
         <div class="chat_name">Easy Chat</div>
         <div class="chat_window" id="chat_window"></div>
@@ -47,8 +48,7 @@ session_start();
 	</section>
 </section>
 <script>
-  MESSAGES = <?= isset($_SESSION["messages"]) ? json_encode($_SESSION["messages"], true) : "" ?>;
-  user = <?= isset($_SESSION["user"]) ? '"'.$_SESSION["user"].'"' : "" ?>;
+  MESSAGES = <?= isset($_SESSION['messages']) ? json_encode($_SESSION['messages'], true) : '' ?>;
 </script>
 <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -57,10 +57,3 @@ session_start();
 <script src="javaScript/chatScript.js"></script>
 </body>
 </html>
-<?php
-unset(
-	$_SESSION["messages"],
-	$_SESSION["user"]
-);
-?>
-

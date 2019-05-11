@@ -72,6 +72,7 @@ input[type="password"]{
 
 
 input[type="submit"]{
+	position: relative;
 	background: #635960;
 	height: 40px;
 	margin-top: 30px;
@@ -83,7 +84,7 @@ input[type="submit"]{
 	color: #fffced;
 	font-family: "Pacifico";
 	font-size: 4rem;
-	margin-top: 70px;
+	margin-top: 50px;
 }
 
 /*****************    index.php - password error  ********************/
@@ -125,10 +126,10 @@ input[type="submit"]{
 	width: 100px;
 }
 
-.submitShadow input[type="submit"]::after {
+input[type="submit"]::after{
 	content: "";
 	display: block;
-	position: relative;
+	position: absolute;
 	top: 3px;
 	right: 3px;
 	width: 100px;
