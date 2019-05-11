@@ -70,6 +70,7 @@ input[type="password"]{
 	color: #a59ba2;
 }
 
+
 input[type="submit"]{
 	background: #635960;
 	height: 40px;
@@ -124,10 +125,15 @@ input[type="submit"]{
 	width: 100px;
 }
 
-/*.submitShadow{*/
-/*	background: #fc0;*/
-/*	box-shadow: 0 10px 0 10px rgba(0,0,0,0.06);*/
-/*}*/
+.submitShadow input[type="submit"]::after {
+	content: "";
+	display: block;
+	position: relative;
+	top: 3px;
+	right: 3px;
+	width: 100px;
+	height: 5px;
+}
 
 
 /*****************    chatWindow.php   ********************/
@@ -145,6 +151,8 @@ input[type="submit"]{
 	height: 250px;
 	background: #fffced;
 	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 10px;
 }
 
 .chat_massage_submit{
@@ -158,7 +166,7 @@ textarea{
 	height: 35px;
 	resize: none;
 	margin-top: 30px;
-	margin-right: 45px;
+	margin-right: 65px;
 	color: #635960;
 	outline: none;
 	border: none;
@@ -166,4 +174,5 @@ textarea{
 	font-size: 0.8rem;
 }
 
-
+.messageStyle{
+}

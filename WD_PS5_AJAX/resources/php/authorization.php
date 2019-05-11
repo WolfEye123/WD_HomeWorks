@@ -3,17 +3,18 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	if ($_POST["function"] === "0") {
 		indexPage();
-	} else if ($_POST["function"] === "1") {
-		chatPage();
 	}
 }
 
+/**
+ *
+ */
 function indexPage()
 {
 	// variables
 	$postUser = $_POST["user"];
 	$postPassword = $_POST["password"];
-	$_SESSION['user'] = $_POST['user'];
+	$_SESSION["user"] = $_POST["user"];
 
 
 	$filePath = "../json/$postUser.json";
@@ -22,7 +23,7 @@ function indexPage()
 	$object = (object)[
 		"user" => $postUser,
 		"password" => $postPassword,
-		"massages" => []
+		"messages" => []
 	];
 
 	if ($dir = opendir("../json")) {
@@ -41,6 +42,7 @@ function indexPage()
 		$buffer = file_get_contents($filePath);
 		$data = json_decode($buffer, true);
 		if ($data["password"] === $postPassword) {
+			$_SESSION["messages"] = $data;
 			header("Location: ../../public/chatWindow.php");
 			return;
 		} else {
@@ -49,14 +51,5 @@ function indexPage()
 			return;
 		}
 	}
-
-}
-
-function chatPage()
-{
-	// variables
-	$fileName = $_SESSION['user'];
-	$filePath = "../json/$fileName.json";
-
 
 }

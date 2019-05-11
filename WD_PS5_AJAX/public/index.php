@@ -27,31 +27,37 @@ session_start();
         <div class="chat_colorLines_lines line4"></div>
     </section>
     <section>
-        <form class="chat_form" action="../resources/php/authorization.php" method="post">
+        <form id="enterForm" class="chat_form" action="../resources/php/authorization.php" method="post">
             <div class="chat_name">Easy Chat</div>
             <div class="chat_inputs">
                 <input type="hidden" name="function" value="0">
-                <label for="chat_userName">Enter your name</label>
+                <label for="userName">Enter your name</label>
                 <input type="text"
                        name="user"
                        class="chat_userName"
-                       id="chat_userName"
+                       id="userName"
                        required>
-                <label for="chat_userPassword">Enter your password</label>
+                <label for="userPassword">Enter your password</label>
                 <input type="password"
                        name="password"
                        class="chat_userPassword"
-                       id="chat_userPassword"
+                       id="userPassword"
                        required>
                 <div id="passError"
                      class="<?= isset($_SESSION['passError']) ? $_SESSION['passError'] : 'hideError' ?>">
                     Incorrect login or password. Try again
                 </div>
-                <input type="submit" value="Submit">
+                <div id="emptyFields" class="hideError">You must fill in all fields</div>
+                <input type="submit" id="enterSubmit" class="submitShadow" value="Submit">
             </div>
         </form>
     </section>
 </section>
+<script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+<script src="javaScript/indexScript.js"></script>
 </body>
 </html>
 <?php
