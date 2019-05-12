@@ -5,30 +5,37 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // variables
-$postUser = isset($_POST['user']) ? $_POST['user'] : 'false';
-$postPassword = isset($_POST['password']) ? $_POST['password'] : 'false';
-$_SESSION['user'] = $postUser;
-if (!$postUser && !$postPassword){
+$userName = isset($_POST['user']) ? $_POST['user'] : false;
+$userPassword = isset($_POST['password']) ? $_POST['password'] : false;
+$_SESSION['user'] = $userName;
+if (!$userName && !$userPassword){
 	return;
 }
-$filePath = "../json/$postUser.json";
+$userFilePath = "../json/$userName.json";
+$messagesFilePath = "../json/messages.json";
 
 // json object
-$object = (object)[
-	'user' => $postUser,
-	'password' => $postPassword,
-	'messages' => []
+$object = [
+	'userName' => $userName,
+	'userPassword' => $userPassword
 ];
+$messagesFile = file_get_contents($messagesFilePath);
+if (!$messagesFile){
+	return;
+}
+$messagesFile = json_decode($messagesFile, true);
 
-$buffer = file_get_contents($filePath);
-if (!$buffer) {
-	file_put_contents($filePath, json_encode($object), JSON_PRETTY_PRINT);
+$userFile = file_get_contents($userFilePath);
+if (!$userFile) {
+	file_put_contents($userFilePath, json_encode($object), JSON_PRETTY_PRINT);
+	$_SESSION['messages'] = $messagesFile;
 	header('Location: ../../public/chatWindow.php');
 	return;
 }
-$data = json_decode($buffer, true);
-if ($data['password'] === $postPassword) {
-	$_SESSION['messages'] = $data;
+$userFile = json_decode($userFile, true);
+
+if ($userFile['userPassword'] === $userPassword) {
+	$_SESSION['messages'] = $messagesFile;
 	header('Location: ../../public/chatWindow.php');
 	return;
 } else {

@@ -5,27 +5,29 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // variables
+$userName = isset($_SESSION['user']) ? $_SESSION['user'] : false;
+$message = isset($_POST['message']) ? $_POST['message'] : false;
+if (!$userName && !$message){
+	return;
+}
+$filePath = "../json/messages.json";
+
 $date = getdate();
-$messageDate = $date['year'] . '.' .
-	str_pad($date['mon'], 2, '0', STR_PAD_LEFT) . '.' .
+$messageDate = $date['year'] . '-' .
+	str_pad($date['mon'], 2, '0', STR_PAD_LEFT) . '-' .
 	str_pad($date['mday'], 2, '0', STR_PAD_LEFT);
 $messageTime =
 	str_pad($date['hours'], 2, '0', STR_PAD_LEFT) . ':' .
 	str_pad($date['minutes'], 2, '0', STR_PAD_LEFT) . ':' .
 	str_pad($date['seconds'], 2, '0', STR_PAD_LEFT);
-$userName = isset($_SESSION['user']) ? $_SESSION['user'] : 'false';
-$message = isset($_POST['message']) ? $_POST['message'] : 'false';
-if (!$userName && !$message){
-	return;
-}
-$filePath = "../json/$userName.json";
 
 // json object
 $complex = [
 	'messageDate' => $messageDate,
 	'messageTime' => $messageTime,
 	'messageFrom' => $userName,
-	'message' => $message
+	'message' => $message,
+	'show' => true
 ];
 
 $buffer = file_get_contents($filePath);
