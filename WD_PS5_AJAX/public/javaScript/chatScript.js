@@ -4,30 +4,34 @@ $(document).ready(() => {
 	/**
 	 *
 	 */
-	setChat(MESSAGES);
+	chatRefresh();
 
-	setInterval(function () {
+	function chatRefresh() {
 		$.ajax({
 			type: 'POST',
 			url: "http://localhost/WD_HomeWorks/WD_PS5_AJAX/resources/php/chatRefresh.php",
 			data: {},
 			error: function (data) {
-				alert(data);
+				console.log('server fail');
+				chatRefresh();
 			},
 			success: function (data) {
 				setChat(data);
 				chatWindow.scrollTop(chatWindow[0].scrollHeight);
 			}
 		});
-	}, 5000);
+	}
 
 	/**
 	 *
 	 */
 	function setChat(NEW_MESSAGES) {
+		chatWindow.empty();
+		if (NEW_MESSAGES.length === 0) {
+			return chatRefresh();
+		}
 		console.log(NEW_MESSAGES);
-		console.log(NEW_MESSAGES.messages);
-		const messages = NEW_MESSAGES.messages;
+		const messages = NEW_MESSAGES['messages'];
 		for (let i = 0; i < messages.length; i++) {
 			const message = setStringToSmileAndFrown(messages[i].message);
 			const time = messages[i].messageTime;
@@ -36,6 +40,7 @@ $(document).ready(() => {
 			chatWindow.append($(div).addClass('messageStyle').html(`[${time}] <b>${user}:</b> ${message}`));
 		}
 		chatWindow.scrollTop(chatWindow[0].scrollHeight);
+		setTimeout(function() { chatRefresh() },5000);
 	}
 
 	/**
@@ -76,7 +81,7 @@ $(document).ready(() => {
 				'message': message
 			},
 			error: function (data) {
-				alert(data);
+				console.log(data);
 			},
 			success: function (data) {
 				chatWindow.append(
@@ -87,6 +92,7 @@ $(document).ready(() => {
 							</div>`);
 				$('#message')[0].value = '';
 				chatWindow.scrollTop(chatWindow[0].scrollHeight);
+				chatRefresh();
 			}
 		});
 	}

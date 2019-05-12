@@ -12,19 +12,15 @@ if (!$userName && !$message){
 }
 $filePath = "../json/messages.json";
 
-$date = getdate();
-$messageDate = $date['year'] . '-' .
-	str_pad($date['mon'], 2, '0', STR_PAD_LEFT) . '-' .
-	str_pad($date['mday'], 2, '0', STR_PAD_LEFT);
-$messageTime =
-	str_pad($date['hours'], 2, '0', STR_PAD_LEFT) . ':' .
-	str_pad($date['minutes'], 2, '0', STR_PAD_LEFT) . ':' .
-	str_pad($date['seconds'], 2, '0', STR_PAD_LEFT);
+date_default_timezone_set('Europe/Athens');
+$currentDate = date('Y-m-d H:i:s' );
+$messageDate = preg_split("/[\s,]+/",$currentDate);
+$currentDate = strtotime($currentDate);
 
 // json object
 $complex = [
-	'messageDate' => $messageDate,
-	'messageTime' => $messageTime,
+	'messageDate' => $messageDate[0],
+	'messageTime' => $messageDate[1],
 	'messageFrom' => $userName,
 	'message' => $message,
 	'show' => true

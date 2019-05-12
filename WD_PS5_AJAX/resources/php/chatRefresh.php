@@ -4,23 +4,25 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 	return;
 }
 $filePath = "../json/messages.json";
-$currentDate = getdate();
+$oneHour = 3600;
+date_default_timezone_set('Europe/Athens');
+$currentDate = strtotime(date('Y-m-d H:i:s' ));
 $buffer = file_get_contents($filePath);
 if (!$buffer) {
 	echo "false";
 }
 $data = json_decode($buffer, true);
-$complex = [];
-for ($i = 0; $i < count($data); $i++){
-	try {
-		$oldDate = new DateTime($data['messages'][$i]['messageDate'] . 'T' . $data['messages'][$i]['messageTime']);
-	} catch (Exception $e) {
-	}
-	if ($currentDate - $oldDate > 1) {
-		$data[$i]['show'] = false;
+$complex = ["messages" => []];
+for ($i = 0; $i < count($data['messages']); $i++) {
+	if (!$data['messages'][$i]['show']){
 		continue;
 	}
-	$complex[] = $data[$i];
+	$oldDate = strtotime(date($data['messages'][$i]['messageDate'] . $data['messages'][$i]['messageTime']));
+	if ($currentDate - $oldDate > $oneHour) {
+		$data['messages'][$i]['show'] = false;
+		continue;
+	}
+	$complex['messages'][] = $data['messages'][$i];
 }
 file_put_contents($filePath, json_encode($data), JSON_PRETTY_PRINT);
 echo json_encode($complex);
