@@ -26,7 +26,7 @@ isset($_SESSION['visitors']) ? $_SESSION['visitors']++ : $_SESSION['visitors'] =
                         which you think is the strongest</label>
                 </div>
                 <div class="form">
-                    <form action="toDo.php" method="post">
+                    <form action="action.php" method="post">
                         <input type="hidden" name="function" value="action">
                         <div class="rBlock_cb">
                             <input type="checkbox"

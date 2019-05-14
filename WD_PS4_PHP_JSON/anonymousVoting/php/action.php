@@ -25,8 +25,8 @@ function action()
     $buffer = file_get_contents($filename);
     $data = json_decode($buffer, true);
 
-    for ($i = 0; $i < 9; $i++) {
-        if (isset($_POST[$houses[$i]]) && $_POST[$houses[$i]] == $houses[$i]) {
+    for ($i = 0; $i < count($houses); $i++) {
+        if (isset($_POST[$houses[$i]]) && $_POST[$houses[$i]] === $houses[$i]) {
             $data[$houses[$i]]++;
             $_SESSION['image'] = "../images/housesToSlider/" . $houses[$i] . ".png";
             break;

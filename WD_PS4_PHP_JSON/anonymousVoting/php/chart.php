@@ -30,7 +30,6 @@ session_start();
         </section>
     </section>
 </div>
-<script src="../json/votingValues.json"></script>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="../javascript/googleChart.js"></script>
 </body>
