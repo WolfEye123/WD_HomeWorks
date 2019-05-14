@@ -1,6 +1,8 @@
 body {
 	height: 100vh;
 	width: 100%;
+	min-width: 600px;
+	min-height: 600px;
 	margin: 0;
 }
 
@@ -54,34 +56,8 @@ body {
 	background: #7bc3ab;
 }
 
-input{
-	outline: none;
-	border: none;
-	font-family: "Montserrat";
-	font-size: 1rem;
-}
-
-input[type="text"],
-input[type="password"]{
-	padding-left: 20px;
-	background: #fffced;
-	height: 30px;
-	margin-bottom: 10px;
-	color: #a59ba2;
-}
-
-
-input[type="submit"]{
-	position: relative;
-	background: #635960;
-	height: 40px;
-	margin-top: 30px;
-	cursor: pointer;
-	color: #fffced;
-}
-
 .chat_name {
-	color: #fffced;
+	color: #fffecd;
 	font-family: "Pacifico";
 	font-size: 4rem;
 	margin-top: 50px;
@@ -111,7 +87,13 @@ input[type="submit"]{
 	display: flex;
 	flex-direction: column;
 	margin-top: 3%;
-	width: 20%;
+}
+
+.chat_inputs input{
+	outline: none;
+	border: none;
+	font-family: "Montserrat";
+	font-size: 1rem;
 }
 
 .chat_inputs label{
@@ -122,27 +104,74 @@ input[type="submit"]{
 
 }
 
-.chat_sendSubmit{
-	width: 100px;
+.chat_userName,
+.chat_userPassword{
+	padding-left: 20px;
+	background: #fffecd;
+	height: 30px;
+	margin-bottom: 10px;
+	color: #a59ba2;
 }
 
-input[type="submit"]::after{
-	content: "";
+.chat_enterButton{
+	position: relative;
+	width: 100%;
+	background: #635960;
+	height: 40px;
+	margin-top: 30px;
+	cursor: pointer;
+	color: #fffecd;
+	outline: none;
+	border: none;
+	font-family: "Montserrat";
+	font-size: 1rem;
+	z-index: 1000;
+}
+
+.chat_enterButton::after{
+	position: absolute;
+	content: '';
+	background: #b9c783;
+	height: 20px;
+	width: 100%;
+	left: 5%;
+	top: -50%;
+}
+
+.chat_buttonContainer{
+	display: flex;
+	position: relative;
+}
+
+.chat_shadow{
 	display: block;
 	position: absolute;
-	top: 3px;
-	right: 3px;
-	width: 100px;
-	height: 5px;
+	top: 63%;
+	left: 5%;
+	z-index: 0;
+	width: 102%;
+	height: 150px;
+	background: linear-gradient(to top, rgba(0,0,0,0.06), rgba(0,0,0,0));
+	transform: rotate(169deg);
 }
 
-
 /*****************    chatWindow.php   ********************/
+
+.chat_helloUser{
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-family: "Montserrat";
+    color: #fffecd;
+    font-size: 2rem;
+
+}
 
 .chat_scope{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+    position: relative;
 	height: 98%;
 }
 
@@ -150,7 +179,7 @@ input[type="submit"]::after{
 	margin-top: 30px;
 	width: 500px;
 	height: 250px;
-	background: #fffced;
+	background: #fffecd;
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 10px;
@@ -161,8 +190,8 @@ input[type="submit"]::after{
 	flex-direction: row;
 }
 
-textarea{
-	background: #fffced;
+.chat_textarea{
+	background: #fffecd;
 	width: 350px;
 	height: 35px;
 	resize: none;
@@ -173,6 +202,19 @@ textarea{
 	border: none;
 	font-family: "Montserrat";
 	font-size: 0.8rem;
+}
+
+.chat_sendSubmit{
+	background: #635960;
+	height: 40px;
+	margin-top: 30px;
+	cursor: pointer;
+	color: #fffecd;
+	outline: none;
+	border: none;
+	font-family: "Montserrat";
+	font-size: 1rem;
+	width: 100px;
 }
 
 .messageStyle{

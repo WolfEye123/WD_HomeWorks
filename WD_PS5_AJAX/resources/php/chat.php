@@ -33,5 +33,5 @@ if (!$buffer){
 $data = json_decode($buffer, true);
 $data['messages'][] = $complex;
 file_put_contents($filePath, json_encode($data), JSON_PRETTY_PRINT);
-echo json_encode($complex);
 header('Content-type: application/json');
+echo json_encode($complex);

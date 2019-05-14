@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="images/icon.png"/>
     <title>Easy Chat</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -30,7 +31,6 @@ session_start();
         <form id="enterForm" class="chat_form" action="../resources/php/authorization.php" method="post">
             <div class="chat_name">Easy Chat</div>
             <div class="chat_inputs">
-                <input type="hidden" name="function" value="0">
                 <label for="userName">Enter your name</label>
                 <input type="text"
                        name="user"
@@ -48,7 +48,10 @@ session_start();
                     Incorrect login or password. Try again
                 </div>
                 <div id="emptyFields" class="hideError">You must fill in all fields</div>
-                <input type="submit" id="enterSubmit" class="submitShadow" value="Submit">
+                <div class="chat_buttonContainer">
+                    <button type="submit" class="chat_enterButton" id="enterSubmit">Submit</button>
+                <div class="chat_shadow"></div>
+                </div>
             </div>
         </form>
     </section>

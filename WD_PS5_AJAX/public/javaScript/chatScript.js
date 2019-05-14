@@ -6,6 +6,9 @@ $(document).ready(() => {
 	 */
 	chatRefresh();
 
+	/**
+	 * sends an ajax request to the server to update the list of messages displayed in the chat window
+	 */
 	function chatRefresh() {
 		$.ajax({
 			type: 'POST',
@@ -23,7 +26,7 @@ $(document).ready(() => {
 	}
 
 	/**
-	 *
+	 * overwrites the list of messages in the chat window based on the data received from the ajax request
 	 */
 	function setChat(NEW_MESSAGES) {
 		chatWindow.empty();
@@ -44,14 +47,14 @@ $(document).ready(() => {
 	}
 
 	/**
-	 *
+	 * event listener button to send messages
 	 */
 	$('#sendMessage').on('click', function (e) {
 		return ajaxInAction(e);
 	});
 
 	/**
-	 *
+	 * event listener textarea to send a message by pressing the enter button
 	 */
 	$("#message").on('keyup', function (e) {
 		if (e.keyCode == 13) {
@@ -60,7 +63,7 @@ $(document).ready(() => {
 	});
 
 	/**
-	 *
+	 * ajax request to the server to process the new message and add it to the chat
 	 * @param e
 	 * @returns {boolean}
 	 */
@@ -84,21 +87,19 @@ $(document).ready(() => {
 				console.log(data);
 			},
 			success: function (data) {
+				const message = data.message;
+				const time = data.messageTime;
+				const user = data.messageFrom;
 				chatWindow.append(
-					`<div class="messageStyle">
-								[${data.messageTime}] 
-								<b>${data.messageFrom}:</b> 
-								${data.message}
-							</div>`);
+					`<div class="messageStyle">[${time}]	<b>${user}:</b> ${message}</div>`);
 				$('#message')[0].value = '';
 				chatWindow.scrollTop(chatWindow[0].scrollHeight);
-				chatRefresh();
 			}
 		});
 	}
 
 	/**
-	 *
+	 * replaces ":)" and ":(" with emoticons pictures
 	 * @param message
 	 * @returns {string}
 	 */
