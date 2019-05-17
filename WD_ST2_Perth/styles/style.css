@@ -1,0 +1,320 @@
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+    font-family: 'BLACKJAR';
+    src: url('../fonts/BLACKJAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%;
+    background-image: url('../images/blue-pattern.jpg');
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2rem;
+    padding-bottom: 20px;
+    width: 100px;
+    height: 80px;
+    background: white;
+    color: #00aee8;
+    box-shadow: 15px 15px;
+}
+
+header .logo span {
+    font-size: 3rem;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav button {
+    border: none;
+    outline: none;
+    background-image: url('../images/blue-pattern.jpg');
+    cursor: pointer;
+}
+
+header nav i {
+    color: white;
+    font-size: 2rem;
+}
+
+.first {
+    background-image: url('../images/blue-pattern.jpg');
+}
+
+.first_content {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    color: white;
+    padding: 0 15%;
+}
+
+.first_content h3 {
+    font-family: 'BLACKJAR', regular;
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+.first_content p {
+    font-size: 1.9rem;
+}
+
+.first_img {
+    width: 225px;
+    height: 250px;
+    overflow: hidden;
+    background-image: url('../images/iphone.png');
+    background-size: cover;
+}
+
+.first_img_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 15%;
+    padding-top: 20px;
+}
+
+.first_img_button button {
+    height: 55px;
+    background-image: url(../images/blue-pattern.jpg);
+    outline: none;
+    border: 1px solid White;
+    color: white;
+    padding: 0 25px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.first_img_button i,
+.second_content i,
+.third_content i,
+.fourth i{
+    padding-left: 10px;
+}
+
+.second {
+    background: #f4f4f4;
+    padding-top: 135px;
+    padding-left: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.second_content {
+
+}
+
+.second_content span {
+    font-size: 2.1rem;
+    color: #434343;
+}
+
+.second_content p,
+.second_content__withLine {
+    color: #7b7b7b;
+    font-size: 0.9rem;
+    line-height: 180%;
+}
+
+.second_content p {
+    padding-top: 10px;
+}
+
+.second_content__withLine {
+    border-left: 6px solid #01addb;
+    padding-left: 15px;
+    margin-bottom: 60px;
+}
+
+.second_img {
+    width: 350px;
+    height: 475px;
+    overflow: hidden;
+    background-image: url('../images/ipad.png');
+}
+
+.second_content__button {
+    height: 55px;
+    background: #f4f4f4;
+    outline: none;
+    border: 2px solid #19b7a0;
+    color: #19b7a0;
+    padding: 0 25px;
+    margin-bottom: 125px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.third {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-top: 70px;
+    padding-right: 15%;
+}
+
+.third_img {
+    position: absolute;
+    top: 250px;
+    left: -75px;
+    height: 375px;
+    overflow: hidden;
+}
+
+.third_content {
+    color: #000000a3;
+    padding-bottom: 237px;
+}
+
+.third_content span {
+    font-size: 2.2rem;
+}
+
+.third_content p {
+    line-height: 180%;
+    padding-top: 10px;
+}
+
+.third_content__italicText {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.third_content button {
+    height: 55px;
+    background: white;
+    outline: none;
+    border: 2px solid #ff7fb4;
+    color: #ff7fb4;
+    padding: 0 25px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.fourth {
+    background-image: url('../images/green-pattern.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.fourth span{
+    font-size: 2rem;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.fourth button{
+    height: 55px;
+    background-image: url('../images/green-pattern.jpg');
+    outline: none;
+    border: 1px solid White;
+    color: white;
+    padding: 0 35px;
+    cursor: pointer;
+    margin-bottom: 70px;
+}
+
+.fifth{
+    padding: 200px 0;
+    background: #f4f4f4;
+}
+
+.fifth_social{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 37%;
+    margin-bottom: 50px;
+}
+
+.fifth_social div{
+    width: 40px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fifth_news{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.fifth_news__input{
+    background: white;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.fifth_news__input input{
+    font-style: italic;
+    font-weight: bold;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    color: #d5d5d5;
+}
+
+.fifth_news__input button{
+    border: none;
+    outline: none;
+    color: #11beed;
+    background: white;
+    cursor: pointer;
+    border-left: 1px solid #d5d5d5;
+    padding-left: 10px;
+}
+
+footer{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40%;
+    padding-right: 5%;
+    font-size: 0.8rem;
+}
+
+footer span{
+    color: #40afc2;
+}
+
+footer button{
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #f4f4f4;
+    cursor: pointer;
+}
